@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>RailsMicroblog</title>
-    <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
-  <body>
-    <%= yield %>
+<head>
+  <title>
+    Awesome Rails Microblog
+  </title>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= csrf_meta_tags %>
+</head>
+  <%
+    top_header_class = "navbar-static-top"
+  %>
+  <body class="top-navigation  pace-done">
+    <div id="wrapper">
+      <div id="page-wrapper" class="gray-bg">
+        <%= render "layouts/menu" %>
+        <div class= "wrapper wrapper-content">
+            <%= display_flash_messages %>
+            <%= yield %>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

@@ -1,0 +1,17 @@
+<div class="border-form-div loginscreen animated fadeInDown">
+  <h3 class="custom-text-color text-center">Enviar instruções de confirmação de conta para acessar o</h3>
+  <h2 class="custom-text-color text-center">AwesomeRailsMicroblog</h2>
+
+  <%= simple_form_for(resource, as: resource_name, url: confirmation_path(resource_name, format: ""), html: { method: :post, class: "m-t", role: "form" }) do |f| %>
+    <%= f.error_notification %>
+    <%= f.full_error :confirmation_token %>
+
+    <div class="form-group">
+      <%= f.input :email, label: false, placeholder: "Email", required: true, autofocus: true, class: "form-control", type: "email" %>
+    </div>
+
+    <%= f.button :submit, "Enviar instruções de confirmação", class: "btn-primary full-width block m-b" %>
+
+    <%= link_to "Cancelar", new_session_path(resource_name), class: "btn btn-sm btn-white btn-block" %>
+  <% end %>
+</div>

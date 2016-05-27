@@ -1,0 +1,30 @@
+<div class="border-form-div loginscreen animated fadeInDown">
+  <h3 class="custom-text-color text-center">Fazer login para acessar o</h3>
+  <h2 class="custom-text-color text-center">Awesome Rails Microblog</h2>
+
+  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "m-t", role: "form" }) do |f| %>
+
+    <div class="form-group">
+      <%= f.input :email, label: false, placeholder: "Email", required: false, autofocus: true, class: "form-control", type: "email" %>
+    </div>
+    <div class="form-group">
+      <%= f.input :password, label: false, placeholder: "Senha", required: false, class: "form-control", type: "password" %>
+    </div>
+
+    <div class="form-group">
+      <div class="custom-text-color">
+        <%= f.input :remember_me, as: :boolean, :label => false, input_html: {  style: "margin-top: 1px;" }, :inline_label => "Lembrar meus dados neste computador" if devise_mapping.rememberable? %>
+      </div>
+    </div>
+
+    <%= f.button :submit, "Entrar", class: "btn-primary block full-width m-b" %>
+
+    <div class="text-center">
+      <%= link_to "Esqueceu a senha?", new_password_path(resource_name) %>
+    </div>
+
+    <div class="custom-text-color text-center margin-top-10">Ainda não possui uma conta?</div><br />
+
+    <%= link_to "Criar conta", new_registration_path(resource_name), class: "btn btn-sm btn-white btn-block" %>
+  <% end %>
+</div>

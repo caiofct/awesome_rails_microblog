@@ -1,0 +1,24 @@
+<div class="border-form-div">
+  <h4 class="text-center">Alterar sua senha para acessar o</h4>
+  <h2 class="text-center">AwesomeRailsMicroblog</h2>
+
+  <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put, class: "m-t", role: "form" }) do |f| %>
+    <%= f.error_notification %>
+
+    <%= f.input :reset_password_token, as: :hidden %>
+    <%= f.full_error :reset_password_token %>
+
+    <div class="form-group">
+      <%= f.input :password, placeholder: "Nova Senha", required: true, autofocus: true, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.input :password_confirmation, placeholder: "Confirme sua Nova Senha", required: true, class: "form-control" %>
+    </div>
+
+    <%= f.button :submit, "Alterar senha", class: "btn-primary full-width block m-b" %>
+    <%= render "devise/shared/links" %>
+  <% end %>
+</div>
+
+
