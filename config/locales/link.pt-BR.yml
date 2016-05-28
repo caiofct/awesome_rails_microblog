@@ -1,0 +1,12 @@
+pt-BR:
+  link:
+    send: "Enviar"
+    back: "Cancelar"
+    new: "Criar"
+    show: "Exibir"
+    edit: "Editar"
+    destroy: "Excluir"
+    actions: "Ações"
+    audit: "Auditoria"
+    clear_filter: "Limpar Filtro"
+    search: "Ok"
