@@ -5,7 +5,7 @@
   <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "m-t", role: "form" }) do |f| %>
 
     <div class="form-group">
-      <%= f.input :email, label: false, placeholder: "Email", required: false, autofocus: true, class: "form-control", type: "email" %>
+      <%= f.input :login, label: false, placeholder: "Usuário ou Email", required: false, autofocus: true, class: "form-control", type: "text" %>
     </div>
     <div class="form-group">
       <%= f.input :password, label: false, placeholder: "Senha", required: false, class: "form-control", type: "password" %>
