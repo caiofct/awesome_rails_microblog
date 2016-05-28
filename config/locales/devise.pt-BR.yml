@@ -18,9 +18,9 @@ pt-BR:
       unconfirmed: "Antes de continuar, verifique o seu email e confirme o seu cadastro.&nbsp;&nbsp;&nbsp;&nbsp;<a href='/users/confirmation/new'>Não recebeu as instruções de confirmação?</a>"
     mailer:
       confirmation_instructions:
-        subject: "Confirme seu cadastro no LogResearch"
+        subject: "Confirme seu cadastro no Awesome Rails Microblog"
       reset_password_instructions:
-        subject: "LogResearch – Recuperação de senha"
+        subject: "Awesome Rails Microblog – Recuperação de senha"
         hello: "Olá"
         someone_requested: "Alguém pediu um link para mudar sua senha. Você pode fazer isso através do link abaixo."
         change_password: "Trocar Senha"
