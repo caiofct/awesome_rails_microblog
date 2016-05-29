@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 USER_EMAIL = "jose.silva@test.com"
 
 Given(/^that I am on the sign_up page$/) do
