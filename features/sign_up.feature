@@ -1,4 +1,3 @@
-# encoding: utf-8
 Feature: Sign up with a new account
   In order to login in the application
   As an user
