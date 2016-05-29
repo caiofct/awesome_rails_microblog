@@ -16,10 +16,19 @@
 # users commonly want.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+require 'simplecov'
 require 'factory_girl_rails'
 require 'support/factory_girl'
 
+SimpleCov.start
+
 RSpec.configure do |config|
+  # Removes uploaded files after the tests run
+  config.after(:each) do
+    if Rails.env.test? || Rails.env.cucumber?
+      FileUtils.rm_rf(Dir["#{Rails.root}/spec/support/uploads"])
+    end
+  end
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.

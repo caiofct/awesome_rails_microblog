@@ -43,13 +43,14 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'pry-byebug'
   gem 'rspec-rails', '~> 3.5.0.beta3'
-  gem 'cucumber-rails', :require => false
+  gem 'cucumber-rails', require: false
   # database_cleaner is not required, but highly recommended
   gem 'database_cleaner'
   gem 'factory_girl_rails', require: false
   gem 'launchy'
   gem 'selenium-webdriver'
   gem 'faker'
+  gem 'simplecov', require: false
 end
 
 group :development do
