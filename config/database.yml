@@ -11,7 +11,10 @@ development:
   database: <%= %Q|#{Rails.root.to_s.split("/").last}_development| %>
   password: microblog
 
-test:
+test: &test
   <<: *default
   database: <%= %Q|#{Rails.root.to_s.split("/").last}_test| %>
   password: microblog
+
+cucumber:
+  <<: *test
