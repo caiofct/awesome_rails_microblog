@@ -17,10 +17,13 @@ class User < ApplicationRecord
   }, length: { in: 3..255 }
 
   # Only allow letter, number, underscore and punctuation for the username.
+  # Avoid the problem with a username with an email format
   validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, multiline: true
 
   private
 
+  # Overrinding the devise's logic to lookup a user in the database to use
+  # the username or email
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
     if login = conditions.delete(:login)

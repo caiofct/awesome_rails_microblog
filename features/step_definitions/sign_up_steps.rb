@@ -37,3 +37,9 @@ Then(/^the user must receive a confirmation email$/) do
   user = User.find_by_email(USER_EMAIL)
   expect(user.confirmation_token).to eq(confirmation_token[1])
 end
+
+Then(/^the user must be able to confirm its account and see the message "([^"]*)"$/) do |message|
+  confirmation_token = last_email.body.match(/confirmation_token=([^"]+)/)
+  visit "/users/confirmation?#{confirmation_token[0]}"
+  page.has_content?(message)
+end
