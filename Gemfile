@@ -46,9 +46,10 @@ group :development, :test do
   gem 'cucumber-rails', :require => false
   # database_cleaner is not required, but highly recommended
   gem 'database_cleaner'
-  gem 'factory_girl_rails'
+  gem 'factory_girl_rails', require: false
   gem 'launchy'
   gem 'selenium-webdriver'
+  gem 'faker'
 end
 
 group :development do
