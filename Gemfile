@@ -51,6 +51,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'faker'
   gem 'simplecov', require: false
+  gem 'yard'
 end
 
 group :development do
