@@ -2,11 +2,7 @@ class PostsController < ApplicationController
 
   # GET /posts/index
   def index
-    @posts = Post.by_user_id(current_user.id)
-  end
-
-  # GET /posts/new
-  def new
+    @posts = Post.by_user_id(current_user.id).order("created_at DESC")
     @post = Post.new
   end
 
@@ -14,13 +10,15 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
+    # setting the user_id in the post to be the id from signed_in user
+    @post.user_id = current_user.id
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Postagem criada com sucesso.' }
-        format.json { render :show, status: :created, location: @post }
+        format.html { redirect_to posts_path, notice: 'Postagem criada com sucesso.' }
+        format.json { render :index, status: :created, location: posts_path }
       else
-        format.html { render :new }
+        format.html { render :index }
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end

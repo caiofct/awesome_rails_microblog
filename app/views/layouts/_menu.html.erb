@@ -4,7 +4,7 @@
           <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
               <i class="fa fa-reorder"></i>
           </button>
-          <a href="#" class="navbar-brand">Awsome Rails Microblog</a>
+          <a href="#" class="navbar-brand">Awesome Rails Microblog</a>
       </div>
       <div class="navbar-collapse collapse" id="navbar">
           <ul class="nav navbar-nav">
@@ -14,7 +14,7 @@
             <% if !current_user.blank? %>
               <li class="dropdown">
                 <a style="padding-right: 0;" class="dropdown-toggle count-info" href="#" data-toggle="dropdown" aria-expanded="false">
-                  <%= image_tag "default_profile.jpg", alt: "image", class: "img-circle profile-image-small" %>
+                  <%= profile_image :very_small %>
                   <div class="caret" style="float: right; margin-top: 9px; margin-left: 5px;"></div>
                   <div style="float: right; padding-left: 10px;"><%= current_user.name %></div>
                 </a>

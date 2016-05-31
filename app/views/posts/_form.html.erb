@@ -1,12 +1,8 @@
-<%= simple_form_for(@post) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :content %>
-    <%= f.association :user %>
+<%= simple_form_for(@post, html: { style: "width: 100% !important;" }) do |f| %>
+  <div class="form-group">
+    <%= f.input :content, as: :summernote, input_html: { class: "form-control", style: "height: 100px;", placeholder: "O quê está acontecendo?" } %>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="text-right m-b" style="">
+    <%= f.button :submit, "Postar", class: "btn btn-sm btn-primary m-t-n-xs" %>
   </div>
 <% end %>
