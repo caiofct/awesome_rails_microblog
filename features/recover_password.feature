@@ -13,6 +13,5 @@ Feature: Recover password for an existing account
     And I should be able to click in the recover password link on the email to got to the change password page
     And I should fill the recover password form with my new password
     And click in "Alterar senha"
-    And I should be redirected to the homepage
     And I should see the message "Sua senha foi alterada com sucesso. Você está logado."
     And the new password was really changed
