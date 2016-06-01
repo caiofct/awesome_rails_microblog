@@ -1,6 +1,6 @@
 module ApplicationHelper
-  # Displays the user profile image using a variety of differents sizes an css options
-  def profile_image(size = :default, options = {}, user = current_user)
+  # Displays the user profile image using a variety of differents sizes an css style options
+  def profile_image(size = :default, style = {}, user = current_user)
 
     profile_style = "width: 100px; height: 100px;"
     profile_class = "profile-image img-circle circle-border m-b-md"
@@ -14,9 +14,20 @@ module ApplicationHelper
       profile_style = "width: 100px; height: 100px;"
     end
 
-    profile_style += options.map{|k,v| " #{k}: #{v}"}.join(';')
+    profile_style += style.map{|k,v| " #{k}: #{v}"}.join(';')
 
-    image_tag current_user.avatar.blank? ? "default_profile.jpg" : current_user.avatar.url,
-              alt: "profile", class: profile_class, style: profile_style
+    return image_tag(user.avatar.blank? ? "default_profile.jpg" : user.avatar.url,
+                     alt: "profile", class: profile_class, style: profile_style) if size == :very_small
+
+
+    if !current_user.blank? && user.id == current_user.id
+      return link_to image_tag(user.avatar.blank? ? "default_profile.jpg" : user.avatar.url,
+                               alt: "profile", class: profile_class, style: profile_style),
+                     user_profile_path(user.username), onclick: "$('#user_avatar').click(); event.preventDefault();"
+    end
+
+    link_to image_tag(user.avatar.blank? ? "default_profile.jpg" : user.avatar.url,
+                      alt: "profile", class: profile_class, style: profile_style),
+            user_profile_path(user.username)
   end
 end
