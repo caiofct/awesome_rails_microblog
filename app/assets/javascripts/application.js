@@ -40,6 +40,7 @@ $(document).on('ready page:load', function () {
     });
   });
 
+  // Sending user avatar when the file field changes
   $('#user_avatar').on("change", function(event){
     $('.simple_form.edit_user').submit();
   });

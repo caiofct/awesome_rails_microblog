@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-lg-3 m-b">
     <div class="widget-head-color-box navy-bg p-lg text-center">
-      <%= profile_image(:default, {}, @user) %>
+      <%= profile_image(:default, {}, @user, true) %>
       <%= simple_form_for(@user, html: { multipart: true, style: "height: 0px;" }) do |f| %>
         <%= f.input :avatar, as: :file, wrapper_html: { style: "visibility: hidden;" } %>
         <%#= f.submit "Enviar imagem", id: "user-avatar-upload", class: "btn btn-primary", style: "display: none;" %>
