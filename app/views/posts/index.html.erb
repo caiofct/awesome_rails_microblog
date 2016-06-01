@@ -30,17 +30,17 @@
 
     <div class="ibox float-e-margins">
       <div class="ibox-content">
-        <% if @posts.blank? %>
-          <div class="text-center">
-            <h1>Você ainda não fez nenhuma Postagem :(</h1>
-          </div>
-        <% else %>
-          <div class="chat-activity-list">
+        <div class="chat-activity-list posts">
+          <% if @posts.blank? %>
+            <div class="text-center empty">
+              <h1>Você ainda não fez nenhuma Postagem :(</h1>
+            </div>
+          <% else %>
             <% @posts.each do |post| %>
               <%= render post %>
             <% end %>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

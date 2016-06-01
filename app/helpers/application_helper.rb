@@ -2,7 +2,7 @@ module ApplicationHelper
   # Displays the user profile image using a variety of differents sizes an css options
   def profile_image(size = :default, options = {}, user = current_user)
 
-    profile_style = ""
+    profile_style = "width: 100px; height: 100px;"
     profile_class = "profile-image img-circle circle-border m-b-md"
     case size.to_sym
     when :very_small
@@ -11,8 +11,6 @@ module ApplicationHelper
     when :small
       profile_style = "width: 60px; height: 60px;"
     when :default
-      profile_style = "width: 100px; height: 100px;"
-    else
       profile_style = "width: 100px; height: 100px;"
     end
 
