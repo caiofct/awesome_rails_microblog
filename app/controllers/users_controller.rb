@@ -2,8 +2,12 @@ class UsersController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show]
 
   # GET /users/show/:username
-  def show
-    @user = User.find_by_username!(params[:username])
+  def show  
+    @user = User.find_by_username(params[:username])
+    if @user.blank?
+      render file: "public/404.html", status: 404
+      return
+    end
     @posts = Post.by_user_id(@user.id).order("created_at DESC")
   end
 

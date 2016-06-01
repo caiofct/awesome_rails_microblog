@@ -19,7 +19,6 @@
 //= require summernote/locales/pt-BR
 //= require turbolinks
 //= require_tree .
-
 $(document).on('ready page:load', function () {
   // Adding support to summernote javascript text editor in the create
   // post field
@@ -40,7 +39,7 @@ $(document).on('ready page:load', function () {
     });
   });
 
-  // Sending user avatar when the file field changes
+  // Submitting the user form, especially to change the user avatar, when the file field changes
   $('#user_avatar').on("change", function(event){
     $('.simple_form.edit_user').submit();
   });

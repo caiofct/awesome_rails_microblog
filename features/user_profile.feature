@@ -3,7 +3,27 @@ Feature: View a user profile page and his posts
 
   Scenario: Access the user profile page as a signed in user
     Given that I have signed in
-    #TODO
+    And I have two user profiles
+    And I have many posts for each user
+    When I visit the user profile page
+    Then I should only see the user posts
+    And the user profile info
 
-  Scenario: Access the user profile page as a anonymous user
-    #TODO
+  Scenario: Access the user profile page as an anonymous user
+    Given I have two user profiles
+    And I have many posts for each user
+    When I visit the user profile page
+    Then I should only see the user posts
+    And the user profile info
+
+  Scenario: Access the user profile of a non existing user
+    Given I have two user profiles
+    When I visit the user profile page of a non existing user
+    Then I should see the message "Página não encontrada (404)"
+
+  Scenario: Access the user profile and change it's avatar image
+    Given that I have signed in
+    When I visit the user profile page
+    And I click in the "user_avatar_link" link
+    And I select an image
+    Then the user avatar image must be updated

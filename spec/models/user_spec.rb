@@ -25,6 +25,12 @@ RSpec.describe User, type: :model do
     expect(FactoryGirl.build(:user, username: Faker::Internet.email)).not_to be_valid
   end
 
+  it "a post should be associated with an user" do
+    user = FactoryGirl.create(:user)
+    post = FactoryGirl.create(:post, user: user)
+    expect(user.posts.length).to eq 1
+  end
+
   it "does not allow users with duplicated emails" do
     duplicated_email = Faker::Internet.email
     FactoryGirl.create(:user, email: duplicated_email)

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations: 'registrations' }
 
   resources :users, only: [:update]
-  get '/user/:username' => 'users#show', as: :user_profile
+  get '/user/:username' => 'users#show', as: :user_profile, constraints: { username: /[^\/]+/ }
 
   root 'home#index'
 end

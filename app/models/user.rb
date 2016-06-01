@@ -4,7 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable,
          :validatable, :confirmable
-
+  # A user has many posts
+  has_many :posts, dependent: :destroy
+  # The user avatar property is a Carrierwave Uploader wich supports only images
   mount_uploader :avatar, AvatarUploader
   # Virtual attribute for authenticating by either username or email
   # This is in addition to a real persisted field like 'username'

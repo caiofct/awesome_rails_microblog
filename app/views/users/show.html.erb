@@ -4,11 +4,11 @@
       <%= profile_image(:default, {}, @user, true) %>
       <%= simple_form_for(@user, html: { multipart: true, style: "height: 0px;" }) do |f| %>
         <%= f.input :avatar, as: :file, wrapper_html: { style: "visibility: hidden;" } %>
-        <%#= f.submit "Enviar imagem", id: "user-avatar-upload", class: "btn btn-primary", style: "display: none;" %>
+        <%= f.submit "Atualizar", id: "send_avatar_btn", style: "visibility: hidden;" %>
       <% end %>
       <div class="m-b-xs">
-        <h2 class="font-bold no-margins"><%=@user.name%></h2>
-        <small>@<%=@user.username%></small>
+        <h2 id="profile-name" class="font-bold no-margins"><%=@user.name%></h2>
+        <small id="profile-username">@<%=@user.username%></small>
       </div>
       <div class="m-b-md">
         <i class="fa fa-calendar"></i>&nbsp;&nbsp;
