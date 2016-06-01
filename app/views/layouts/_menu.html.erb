@@ -14,9 +14,9 @@
             <% if !current_user.blank? %>
               <li class="dropdown">
                 <a style="padding-right: 0;" class="dropdown-toggle count-info" href="#" data-toggle="dropdown" aria-expanded="false">
-                  <%= profile_image :very_small %>
-                  <div class="caret" style="float: right; margin-top: 9px; margin-left: 5px;"></div>
-                  <div style="float: right; padding-left: 10px;"><%= current_user.name %></div>
+                  <%= profile_image :very_small, { "margin-top": "-3px" } %>
+                  <div class="caret" style="float: right; margin-top: 8px; margin-left: 5px;"></div>
+                  <div style="float: right; padding-left: 10px; margin-top: -1px;"><%= current_user.name %></div>
                 </a>
                 <ul class="dropdown-menu dropdown-alerts">
                   <li>

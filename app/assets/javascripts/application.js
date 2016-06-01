@@ -21,9 +21,12 @@
 //= require_tree .
 
 $(document).on('ready page:load', function () {
+  // Adding support to summernote javascript text editor in the create
+  // post field
   $('[data-provider="summernote"]').each(function(){
     $(this).summernote({
     lang: 'pt-BR',
+    placeholder: "O quê está acontecendo?",
     toolbar: false,
     height: '90px',
     maxHeight: '90px',

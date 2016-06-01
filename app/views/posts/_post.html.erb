@@ -2,9 +2,13 @@
   <a class="pull-left" href="#">
     <%= profile_image(:small, {}, post.user) %>
   </a>
-  <div class="media-body ">
+  <div class="media-body">
     <small class="pull-right"><%=time_ago_in_words(post.created_at)%></small>
     <strong><%=post.user.name%></strong> <span style="color: #8899a6;">@<%=post.user.username%></span>
-    <p class="m-b-xs m-t-xs" style="font-size: 18px;"><%=post.content.html_safe%></p>
+    <div  style="font-size: 18px !important;">
+      <p class="m-b-xs m-t-xs">
+        <%=post.content.html_safe%>
+      </p>
+    </div>
   </div>
 </div>
