@@ -1,0 +1,6 @@
+<%= simple_form_for(@post, html: { style: "width: 100% !important;" }) do |f| %>
+  <%= f.input :content, as: :summernote, input_html: { class: "form-control", style: "height: 100px;", placeholder: "O quê está acontecendo?" } %>
+  <div class="text-right m-b" style="">
+    <%= f.button :submit, "Postar", class: "btn btn-sm btn-primary m-t-n-xs" %>
+  </div>
+<% end %>

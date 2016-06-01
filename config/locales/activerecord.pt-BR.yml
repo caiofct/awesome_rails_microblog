@@ -10,3 +10,7 @@ pt-BR:
         password: "Senha"
         password_confirmation: "Confirmar senha"
         avatar: "Imagem de Perfil"
+      post:
+        content: "Postagem"
+        user: "Usuário"
+
