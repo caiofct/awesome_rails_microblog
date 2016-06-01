@@ -215,7 +215,7 @@ pt-BR:
   time:
     am: ""
     formats:
-      default: ! "%d/%m/%Y %H:%M"
+      default: ! "%B de %Y"
       long: ! "%d %b %Y - %H:%M:%S"
       short: ! "%d %b - %H:%M:%S"
       simple_date: ! "%d/%m/%Y"

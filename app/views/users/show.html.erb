@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="col-lg-3 m-b">
+    <div class="widget-head-color-box navy-bg p-lg text-center">
+      <%= profile_image(:default, {}, @user, true) %>
+      <%= simple_form_for(@user, html: { multipart: true, style: "height: 0px;" }) do |f| %>
+        <%= f.input :avatar, as: :file, wrapper_html: { style: "visibility: hidden;" } %>
+        <%= f.submit "Atualizar", id: "send_avatar_btn", style: "visibility: hidden;" %>
+      <% end %>
+      <div class="m-b-xs">
+        <h2 id="profile-name" class="font-bold no-margins"><%=@user.name%></h2>
+        <small id="profile-username">@<%=@user.username%></small>
+      </div>
+      <div class="m-b-md">
+        <i class="fa fa-calendar"></i>&nbsp;&nbsp;
+        Juntou-se em <%= l @user.created_at, format: :default %>
+      </div>
+      <div class="row">
+        <div class="col-xs-4">Postagens</div>
+        <div class="col-xs-4">Seguindo</div>
+        <div class="col-xs-4">Seguidores</div>
+      </div>
+      <div class="row">
+        <div class="col-xs-4">100</div>
+        <div class="col-xs-4">350</div>
+        <div class="col-xs-4">610</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-9">
+    <div class="ibox float-e-margins">
+      <div class="ibox-content">
+        <div class="chat-activity-list posts">
+          <% if @posts.blank? %>
+            <div class="text-center empty">
+              <h1>Você ainda não fez nenhuma Postagem :(</h1>
+            </div>
+          <% else %>
+            <% @posts.each do |post| %>
+              <%= render post %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -4,6 +4,6 @@ Given(/^that I have signed in$/) do
   step 'click in "Entrar"'
 end
 
-When(/^I click in the "Sair" link$/) do
-  find_link("sign_out_link").click
+When(/^I click in the "([^"]*)" link$/) do |link_name|
+  find_link(link_name).click
 end
