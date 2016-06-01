@@ -17,9 +17,14 @@
 //= require toastr_rails
 //= require summernote
 //= require summernote/locales/pt-BR
-//= require turbolinks
 //= require_tree .
-$(document).on('ready page:load', function () {
+//= require turbolinks
+
+$(document).on("turbolinks:load", function() {
+  setupComponents();
+});
+
+function setupComponents() {
   // Adding support to summernote javascript text editor in the create
   // post field
   $('[data-provider="summernote"]').each(function(){
@@ -43,4 +48,4 @@ $(document).on('ready page:load', function () {
   $('#user_avatar').on("change", function(event){
     $('.simple_form.edit_user').submit();
   });
-});
+}
