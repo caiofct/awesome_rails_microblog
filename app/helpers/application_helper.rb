@@ -8,9 +8,9 @@ module ApplicationHelper
       profile_style = "width: 20px; height: 20px;"
       profile_class = "img-circle profile-image-small"
     when :small
-      profile_style = "width: 60px; height: 60px;"
+      profile_style = "width: 60px; height: 60px; margin-top: -2px;"
     when :default
-      profile_style = "width: 100px; height: 100px;"
+      profile_style = "width: 100px; height: 100px; float: none !important;"
     end
 
     profile_style += style.map{|k,v| " #{k}: #{v}"}.join(';')
@@ -18,20 +18,20 @@ module ApplicationHelper
     return image_tag(user.avatar.blank? ? "default_profile.jpg" : user.avatar.url,
                      alt: "profile", class: profile_class, style: profile_style) if size == :very_small
 
-    if !current_user.blank? && user.id == current_user.id
-      if profile_page
-        return link_to image_tag(user.avatar.blank? ? "default_profile.jpg" : user.avatar.url,
-                                 alt: "profile", class: profile_class, style: profile_style),
-                       user_profile_path(user.username), onclick: "$('#user_avatar').click(); event.preventDefault();",
-                       id: "user_avatar_link"
-      else
-        return link_to image_tag(user.avatar.blank? ? "default_profile.jpg" : user.avatar.url,
-                                 alt: "profile", class: profile_class, style: profile_style),
-                       user_profile_path(user.username),
-                       id: "user_avatar_link"
+    if !current_user.blank? && user.id == current_user.id && profile_page
+      # the user is logged in and inside the user profile page
+      return link_to user_profile_path(user.username),
+                     onclick: "$('#user_avatar').click(); event.preventDefault();",
+                     onmouseover: "$(this).find('.user-profile-overlay').show();",
+                     onmouseout: "$(this).find('.user-profile-overlay').hide();",
+                     id: "user_avatar_link" do
+        image_tag(user.avatar.blank? ? "default_profile.jpg" : user.avatar.url,
+                  alt: "profile", class: profile_class, style: profile_style) +
+        content_tag(:i, "", class: "fa fa-camera user-profile-overlay")
       end
     end
 
+    # the user is not logged in or is not in the user profile page
     link_to image_tag(user.avatar.blank? ? "default_profile.jpg" : user.avatar.url,
                       alt: "profile", class: profile_class, style: profile_style),
             user_profile_path(user.username),
