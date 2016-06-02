@@ -28,20 +28,22 @@ function setupComponents() {
   // Adding support to summernote javascript text editor in the create
   // post field
   $('[data-provider="summernote"]').each(function(){
-    $(this).summernote({
-      lang: 'pt-BR',
-      placeholder: "O quê está acontecendo?",
-      toolbar: false,
-      height: '90px',
-      maxHeight: '90px',
-      minHeight: '90px',
-      // On paste event to clear text formatting
-      onpaste: function(e) {
-        var bufferText = ((e.originalEvent || e).clipboardData || window.clipboardData).getData('Text');
-        e.preventDefault();
-        document.execCommand('insertText', false, bufferText);
-      }
-    });
+    if ($(this).find(".note-editable").length <= 0) {
+      $(this).summernote({
+        lang: 'pt-BR',
+        placeholder: "O quê está acontecendo?",
+        toolbar: false,
+        height: '90px',
+        maxHeight: '90px',
+        minHeight: '90px',
+        // On paste event to clear text formatting
+        onpaste: function(e) {
+          var bufferText = ((e.originalEvent || e).clipboardData || window.clipboardData).getData('Text');
+          e.preventDefault();
+          document.execCommand('insertText', false, bufferText);
+        }
+      });
+    }
   });
 
   // Submitting the user form, especially to change the user avatar, when the file field changes
