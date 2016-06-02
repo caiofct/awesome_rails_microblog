@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   # GET /users/show/:username
   def show  
-    @user = User.find_by_username(params[:username])
+    @user = User.confirmed.by_username(params[:username])
     if @user.blank?
       render file: "public/404.html", status: 404
       return

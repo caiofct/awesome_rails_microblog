@@ -27,6 +27,11 @@ class User < ApplicationRecord
   # Avoid the problem with a username with an email format
   validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, multiline: true
 
+  # Finds an specific user by username
+  scope :by_username, lambda { |username|  where("username" => username)}
+  # Finds all confirmed users
+  scope :confirmed, lambda { where("confirmed_at IS NOT NULL") }
+
   # Overrinding the devise's logic to lookup a user in the database to use
   # the username or email
   def self.find_for_database_authentication(warden_conditions)
