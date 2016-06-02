@@ -20,6 +20,14 @@
                 </a>
                 <ul class="dropdown-menu dropdown-alerts">
                   <li>
+                    <%= link_to user_profile_path(current_user.username) do %>
+                      <div>
+                        <div>Ver perfil</div>
+                        <div style="font-size: 12px; margin-top: -8px; color: rgb(136, 153, 166);">@<%=current_user.username%></div>
+                      </div>
+                    <% end %>
+                  </li>
+                  <li>
                     <%= link_to "Sair", destroy_user_session_path, method: :delete, id: "sign_out_link" %>
                   </li>
                 </ul>

@@ -44,6 +44,13 @@ When(/^I select an image$/) do
   end
 end
 
+When(/^I select a file that is not an image$/) do
+  within('form.edit_user') do
+    attach_file(:user_avatar, File.join(Rails.root, '/spec/fixtures/files/file.txt'))
+    find("#send_avatar_btn").click
+  end
+end
+
 Then(/^the user avatar image must be updated$/) do
   expect(File.basename(page.find(".profile-image")[:src])).to eq "olocobixo.jpg"
 end
