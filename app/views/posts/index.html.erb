@@ -12,9 +12,9 @@
         <div class="col-xs-4">Seguidores</div>
       </div>
       <div class="row">
-        <div class="col-xs-4">100</div>
-        <div class="col-xs-4">350</div>
-        <div class="col-xs-4">610</div>
+        <div class="col-xs-4"><%= current_user.posts.length %></div>
+        <div class="col-xs-4"><%= current_user.followeds.length %></div>
+        <div class="col-xs-4"><%= current_user.followers.length %></div>
       </div>
     </div>
   </div>

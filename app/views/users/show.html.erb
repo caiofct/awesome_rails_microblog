@@ -10,19 +10,34 @@
         <h2 id="profile-name" class="font-bold no-margins"><%=@user.name%></h2>
         <small id="profile-username">@<%=@user.username%></small>
       </div>
-      <div class="m-b-md">
+      <div class="m-b-xs">
         <i class="fa fa-calendar"></i>&nbsp;&nbsp;
         Juntou-se em <%= l @user.created_at, format: :default %>
       </div>
-      <div class="row">
+      <% if !current_user.blank? && current_user.can_follow?(@user) %>
+        <div class="row">
+          <%= link_to follow_user_path(@user.username), class: "btn btn-default", style: "color: #676a6c;" do %>
+            <i class="fa fa-user-plus"></i>
+            Seguir
+          <% end %>
+        </div>
+      <% elsif !current_user.blank? && current_user.following?(@user) %>
+        <div class="row">
+          <%= link_to unfollow_user_path(@user.username), class: "btn btn-success" do %>
+            <i class="fa fa-user-times"></i>
+            Deixar de seguir
+          <% end %>
+        </div>
+      <% end %>
+      <div class="row m-t-xs"">
         <div class="col-xs-4">Postagens</div>
         <div class="col-xs-4">Seguindo</div>
         <div class="col-xs-4">Seguidores</div>
       </div>
       <div class="row">
-        <div class="col-xs-4">100</div>
-        <div class="col-xs-4">350</div>
-        <div class="col-xs-4">610</div>
+        <div class="col-xs-4"><%= @user.posts.length %></div>
+        <div class="col-xs-4"><%= @user.followeds.length %></div>
+        <div class="col-xs-4"><%= @user.followers.length %></div>
       </div>
     </div>
   </div>
