@@ -34,7 +34,7 @@ class User < ApplicationRecord
   scope :confirmed, lambda { where("confirmed_at IS NOT NULL") }
 
   # To determine whether a user can follow another, we have some pre-requisites:
-  # 1. The user to be followed can`t be the same user that wants to follow him (A user cannot follow himself)
+  # 1. The user to be followed can`t be the same user that wants to follow him (An user cannot follow himself)
   # 2. The user to be followed can`t be followed yet by the user (You cannot have duplicates between a follower and followed pair)
   def can_follow?(user)
     if self.id == user.id || following?(user)

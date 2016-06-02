@@ -27,3 +27,10 @@ Feature: View a user profile page and his posts
     And I click in the "user_avatar_link" link
     And I select an image
     Then the user avatar image must be updated
+
+  Scenario: Access the user profile and can`t change it's avatar image with non image files
+    Given that I have signed in
+    When I visit the user profile page
+    And I click in the "user_avatar_link" link
+    And I select a file that is not an image
+    And I should see the message "Não foi possível fazer upload da imagem. Por favor, tente novamente."
