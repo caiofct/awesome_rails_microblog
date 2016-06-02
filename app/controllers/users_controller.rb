@@ -20,7 +20,10 @@ class UsersController < ApplicationController
 
   # GET /user/:username/follow
   def follow
-    current_user.follow(@user)
+    if current_user.follow(@user)
+      UserMailer.followed_by_user(@user, current_user).deliver
+    end
+
     redirect_to user_profile_path(@user.username)
   end
 

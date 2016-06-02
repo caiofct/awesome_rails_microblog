@@ -52,7 +52,12 @@ class User < ApplicationRecord
 
   # Adds the user in parameter to the list of followeds of the instance user
   def follow(user)
-    self.followeds << user
+    if can_follow?(user)
+      self.followeds << user
+      return true
+    end
+
+    false
   end
 
   # Removes the user in the parameter from the Followings table where the
