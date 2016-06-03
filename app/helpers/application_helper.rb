@@ -14,25 +14,29 @@ module ApplicationHelper
     end
 
     profile_style += style.map{|k,v| " #{k}: #{v}"}.join(';')
+    user_avatar = user.avatar.blank? ? "default_profile.jpg" : user.avatar.url(:thumb)
 
-    return image_tag(user.avatar.blank? ? "default_profile.jpg" : user.avatar.url,
+    return image_tag(user_avatar,
                      alt: "profile", class: profile_class, style: profile_style) if size == :very_small
 
     if !current_user.blank? && user.id == current_user.id && profile_page
       # the user is logged in and inside the user profile page
       return link_to user_profile_path(user.username),
                      onclick: "$('#user_avatar').click(); event.preventDefault();",
-                     onmouseover: "$(this).find('.user-profile-overlay').show();",
+                     onmouseover: "$(this).find('.user-profile-overlay').css('display', 'inline-block');",
                      onmouseout: "$(this).find('.user-profile-overlay').hide();",
                      id: "user_avatar_link" do
-        image_tag(user.avatar.blank? ? "default_profile.jpg" : user.avatar.url,
-                  alt: "profile", class: profile_class, style: profile_style) +
-        content_tag(:i, "", class: "fa fa-camera user-profile-overlay")
+        # image_tag(user_avatar,
+        #           alt: "profile", class: profile_class, style: profile_style)
+        content_tag(:div,
+                    content_tag(:i, "", class: "fa fa-camera user-profile-overlay"),
+                    class: profile_class,
+                    style: "background: url('#{user_avatar}') no-repeat; background-size: 100% 100%; margin: 0 auto 20px; #{profile_style}")
       end
     end
 
     # the user is not logged in or is not in the user profile page
-    link_to image_tag(user.avatar.blank? ? "default_profile.jpg" : user.avatar.url,
+    link_to image_tag(user_avatar,
                       alt: "profile", class: profile_class, style: profile_style),
             user_profile_path(user.username),
             id: "user_avatar_link"
