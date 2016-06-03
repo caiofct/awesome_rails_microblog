@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to user_profile_path(@user.username)
     else
-      redirect_to user_profile_path(@user.username), error: "Não foi possível fazer upload da imagem. Por favor, tente novamente."
+      redirect_to user_profile_path(@user.username), notice: "Não foi possível fazer upload da imagem. Por favor, tente novamente."
     end
   end
 

@@ -1,4 +1,20 @@
 module ApplicationHelper
+  # Maps flash types in to bootstrap classes
+  def bootstrap_class_for(flash_type)
+    case flash_type
+    when "success"
+      "alert-success"
+    when "error"
+      "alert-danger"
+    when "alert"
+      "alert-warning"
+    when "notice"
+      "alert-info"
+    else
+      flash_type.to_s
+    end
+  end
+
   # Displays the user profile image using a variety of differents sizes an css style options
   def profile_image(size = :default, style = {}, user = current_user, profile_page = false)
     profile_style = "width: 100px; height: 100px;"
@@ -27,8 +43,6 @@ module ApplicationHelper
                      onmouseover: "$(this).find('.user-profile-overlay').css('display', 'inline-block');",
                      onmouseout: "$(this).find('.user-profile-overlay').hide();",
                      id: "user_avatar_link" do
-        # image_tag(user_avatar,
-        #           alt: "profile", class: profile_class, style: profile_style)
         content_tag(:div,
                     content_tag(:i, "", class: "fa fa-camera user-profile-overlay"),
                     class: profile_class,

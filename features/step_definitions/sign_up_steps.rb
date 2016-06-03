@@ -27,8 +27,7 @@ Then(/^I should be redirected to the homepage$/) do
 end
 
 Then(/^I should see the message "([^"]*)"$/) do |message|
-  # expect(page.has_content?(message)).to be true
-  page.has_content?(message)
+  expect(page.has_content?(message)).to be true
 end
 
 Then(/^the user must receive a confirmation email$/) do
@@ -40,6 +39,5 @@ end
 Then(/^the user must be able to confirm its account and see the message "([^"]*)"$/) do |message|
   confirmation_token = last_email.body.match(/confirmation_token=([^"]+)/)
   visit "/users/confirmation?#{confirmation_token[0]}"
-  page.has_content?(message)
-  # expect(page.has_content?(message)).to be true
+  expect(page.has_content?(message)).to be true
 end

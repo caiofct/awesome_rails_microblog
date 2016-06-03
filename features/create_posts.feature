@@ -7,7 +7,7 @@ Feature: Create a post
     And I am on the posts page
     When I fill in the post content
     And click in "Postar"
-    Then I should see the message "Postagem criada com sucesso!"
+    Then I should see the message "Postagem criada com sucesso."
     And I should see my new post on the top of the list of existing posts
 
   Scenario: Didn't fill the post content then the post can't be added

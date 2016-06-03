@@ -19,9 +19,9 @@ When(/^I fill in my email and password$/) do
 end
 
 Then(/^I should see the user name in the page$/) do
-  page.has_content?(@user.name)
+  expect(page.has_content?(@user.name)).to be true
 end
 
 Then(/^the "([^"]*)" button to logout from the system$/) do |button_name|
-  page.has_content?(button_name)
+  expect(page.has_content?(button_name)).to be true
 end
