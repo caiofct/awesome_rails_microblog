@@ -2,8 +2,9 @@
 
 ## Funcionalidades
 
-### O usuário pode poder
+### O usuário pode
 
+* Criar uma nova conta
 * Realizar o login
 * Realizar o logout
 
@@ -29,6 +30,8 @@
 
 * Ruby >= 2.3.1
 * Rails v5.0.0rc1
+* rspec-rails 3.5.0.beta3
+* cucumber-rails 1.4.3
 
 ## Como rodar os testes unitários
 
