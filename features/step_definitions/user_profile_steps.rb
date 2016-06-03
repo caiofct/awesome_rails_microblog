@@ -52,5 +52,5 @@ When(/^I select a file that is not an image$/) do
 end
 
 Then(/^the user avatar image must be updated$/) do
-  expect(File.basename(page.find(".profile-image")[:src])).to eq "olocobixo.jpg"
+  expect(File.basename(page.find(".profile-image").native.attributes["style"].value.match(/url\('([^"]*)'\)/)[1])).to eq "thumb_olocobixo.jpg"
 end

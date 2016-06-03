@@ -24,6 +24,22 @@ $(document).on("turbolinks:load", function() {
   setupComponents();
 });
 
+$.fn.preventMultipleClick = function (delay_duration) {
+  delay_duration = delay_duration || 3000;
+  var last_click_time_stamp = 0;
+  var time_duration = 0;
+  $(this).bind('click', function (event) {
+   time_duration = last_click_time_stamp ? event.timeStamp - last_click_time_stamp : 0;
+   //console.debug("preventMultipleClick", last_click_time_stamp, time_duration);
+   if (time_duration && time_duration < delay_duration) {
+     event.stopImmediatePropagation();
+   } else {
+     //console.debug("skip preventMultipleClick~");
+     last_click_time_stamp = event.timeStamp;
+   }
+  });
+};
+
 function setupComponents() {
   // Adding support to summernote javascript text editor in the create
   // post field

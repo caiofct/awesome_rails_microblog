@@ -33,6 +33,18 @@ class UsersController < ApplicationController
     redirect_to user_profile_path(@user.username)
   end
 
+  def search
+    @users = []
+    if !params[:q].blank?
+      if params[:q].strip == ":all"
+        @users = User.all
+      else
+        search_term = "%#{params[:q].strip.gsub(' ','%')}%"
+        @users = User.where('name ilike ? OR username ilike ?', search_term, search_term)
+      end
+    end
+  end
+
   private
 
   # Avoiding repetitions and set`s a user before many actions

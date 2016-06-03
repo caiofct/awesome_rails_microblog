@@ -29,7 +29,6 @@ gem 'devise', '~> 4.1.1'
 gem 'bootstrap-sass'
 gem 'jquery-turbolinks'
 gem 'kaminari',   github: 'amatsuda/kaminari', branch: '0-17-stable'
-gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'enum_help'
 gem 'carrierwave'
 gem 'mini_magick'
@@ -50,7 +49,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'factory_girl_rails', require: false
   gem 'launchy'
-  gem 'selenium-webdriver'
+  gem 'capybara-webkit'
   gem 'faker'
   gem 'simplecov', require: false
   gem 'yard'
