@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:show]
+  skip_before_action :authenticate_user!, only: [:show, :search]
   before_action :set_user, only: [:show, :follow, :unfollow]
 
   # GET /users/show/:username
@@ -33,6 +33,7 @@ class UsersController < ApplicationController
     redirect_to user_profile_path(@user.username)
   end
 
+  # GET /users/search
   def search
     @users = []
     if !params[:q].blank?
