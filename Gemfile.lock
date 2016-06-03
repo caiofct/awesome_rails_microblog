@@ -1,15 +1,4 @@
 GIT
-  remote: git://github.com/activerecord-hackery/ransack.git
-  revision: ebc4ccadbe15e8a10c653c196a9a05c2209eab50
-  specs:
-    ransack (1.7.0)
-      actionpack (>= 3.0)
-      activerecord (>= 3.0)
-      activesupport (>= 3.0)
-      i18n
-      polyamorous (~> 1.3)
-
-GIT
   remote: git://github.com/amatsuda/kaminari.git
   revision: 39f5ce887040ad0940032473c3f09828ae849f2b
   branch: 0-17-stable
@@ -76,14 +65,15 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    capybara-webkit (1.11.1)
+      capybara (>= 2.3.0, < 2.8.0)
+      json
     carrierwave (0.11.2)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
       json (>= 1.7)
       mime-types (>= 1.16)
       mimemagic (>= 0.3.0)
-    childprocess (0.5.9)
-      ffi (~> 1.0, >= 1.0.11)
     coderay (1.1.1)
     coffee-rails (4.1.1)
       coffee-script (>= 2.2.0)
@@ -305,8 +295,6 @@ GEM
       mini_portile2 (~> 2.0.0.rc2)
     orm_adapter (0.5.0)
     pg (0.18.4)
-    polyamorous (1.3.0)
-      activerecord (>= 3.0)
     pry (0.10.3)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -374,7 +362,6 @@ GEM
       rspec-mocks (= 3.5.0.beta3)
       rspec-support (= 3.5.0.beta3)
     rspec-support (3.5.0.beta3)
-    rubyzip (1.2.0)
     sass (3.4.22)
     sass-rails (5.0.4)
       railties (>= 4.0.0, < 5.0)
@@ -382,10 +369,6 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
-    selenium-webdriver (2.53.0)
-      childprocess (~> 0.5)
-      rubyzip (~> 1.0)
-      websocket (~> 1.0)
     simple_form (3.2.1)
       actionpack (> 4, < 5.1)
       activemodel (> 4, < 5.1)
@@ -426,7 +409,6 @@ GEM
       activemodel (>= 4.2)
       debug_inspector
       railties (>= 4.2)
-    websocket (1.2.3)
     websocket-driver (0.6.4)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
@@ -441,6 +423,7 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass
   byebug
+  capybara-webkit
   carrierwave
   coffee-rails (~> 4.1.0)
   cucumber-rails
@@ -463,11 +446,9 @@ DEPENDENCIES
   pry-byebug
   puma (~> 3.0)
   rails (>= 5.0.0.rc1, < 5.1)
-  ransack!
   rollbar
   rspec-rails (~> 3.5.0.beta3)
   sass-rails (~> 5.0)
-  selenium-webdriver
   simple_form (= 3.2.1)
   simplecov
   spring

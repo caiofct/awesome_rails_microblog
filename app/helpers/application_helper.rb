@@ -9,6 +9,7 @@ module ApplicationHelper
       profile_class = "img-circle profile-image-small"
     when :small
       profile_style = "width: 60px; height: 60px; margin-top: -2px;"
+      profile_class = "profile-image img-circle circle-border"
     when :default
       profile_style = "width: 100px; height: 100px; float: none !important;"
     end

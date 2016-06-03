@@ -16,20 +16,20 @@
       </div>
       <% if !current_user.blank? && current_user.can_follow?(@user) %>
         <div class="row">
-          <%= link_to follow_user_path(@user.username), class: "btn btn-default", style: "color: #676a6c;" do %>
+          <%= link_to follow_user_path(@user.username), class: "btn btn-default", style: "color: #676a6c;", disable_with: "Seguindo..." do %>
             <i class="fa fa-user-plus"></i>
             Seguir
           <% end %>
         </div>
       <% elsif !current_user.blank? && current_user.following?(@user) %>
         <div class="row">
-          <%= link_to unfollow_user_path(@user.username), class: "btn btn-success" do %>
+          <%= link_to unfollow_user_path(@user.username), class: "btn btn-success", disable_with: "Seguindo..." do %>
             <i class="fa fa-user-times"></i>
             Deixar de seguir
           <% end %>
         </div>
       <% end %>
-      <div class="row m-t-xs"">
+      <div class="row m-t-xs">
         <div class="col-xs-4">Postagens</div>
         <div class="col-xs-4">Seguindo</div>
         <div class="col-xs-4">Seguidores</div>
