@@ -38,7 +38,7 @@ class UsersController < ApplicationController
     @users = []
     if !params[:q].blank?
       if params[:q].strip == ":all"
-        @users = User.all
+        @users = User.confirmed
       else
         search_term = "%#{params[:q].strip.gsub(' ','%')}%"
         @users = User.confirmed.where('name ilike ? OR username ilike ?', search_term, search_term)
