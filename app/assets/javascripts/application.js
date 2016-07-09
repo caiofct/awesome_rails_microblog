@@ -10,18 +10,20 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
+
+//= require vendor-bundle
+//= require app-bundle
+
+//= require turbolinks
+//= require cable
+//= require react_ujs
+
 //= require jquery.turbolinks
-//= require jquery_ujs
 //= require bootstrap-sprockets
 //= require toastr_rails
 //= require summernote
 //= require summernote/locales/pt-BR
-//= require_tree .
-//= require turbolinks
-//= require react
-//= require react_ujs
-//= require components
+
 
 $(document).on("turbolinks:load", function() {
   setupComponents();

@@ -14,6 +14,14 @@ module RailsMicroblog
     config.i18n.available_locales = %w(pt-BR en)
     config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
     config.assets.precompile += %w( .svg .otf .eot .woff .ttf)
-    config.browserify_rails.commandline_options = "-t [ babelify --presets [ es2015 react stage-0 ] --plugins [ syntax-async-functions transform-regenerator ] ]"
+
+    # Settings for the pool of renderers:
+    config.react.server_renderer_pool_size  ||= 1  # ExecJS doesn't allow more than one on MRI
+    config.react.server_renderer_timeout    ||= 20 # seconds
+    config.react.server_renderer = React::ServerRendering::SprocketsRenderer
+    config.react.server_renderer_options = {
+      files: ["server-bundle.js"],
+      replay_console: true,
+    }
   end
 end
