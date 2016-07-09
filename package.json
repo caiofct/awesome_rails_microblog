@@ -1,0 +1,36 @@
+{
+  "name": "rails-microblog",
+  "version": "1.0.0",
+  "description": "A Microblog like twitter made with Ruby on Rails",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/caiofct/railsmicroblog.git"
+  },
+  "keywords": [
+    "rails",
+    "microblog",
+    "react"
+  ],
+  "author": "Caio Teixeira",
+  "license": "MIT",
+  "homepage": "https://bitbucket.org/caiofct/railsmicroblog#readme",
+  "dependencies": {
+    "babel-loader": "^6.2.4",
+    "babel-plugin-syntax-async-functions": "^6.8.0",
+    "babel-plugin-transform-regenerator": "^6.9.0",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.11.1",
+    "babel-preset-stage-0": "^6.5.0",
+    "babelify": "^7.3.0",
+    "browserify": "^13.0.1",
+    "browserify-incremental": "^3.1.1",
+    "react": "^15.2.0",
+    "react-dom": "^15.2.0",
+    "react-select": "^1.0.0-beta13",
+    "webpack": "^1.13.1"
+  }
+}
