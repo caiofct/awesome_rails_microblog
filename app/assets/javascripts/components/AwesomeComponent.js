@@ -1,4 +1,10 @@
 import React from 'react';
+import Select from 'react-select';
+
+var options = [
+  { value: 'one', label: 'One' },
+  { value: 'two', label: 'Two' }
+];
 
 class AwesomeComponent extends React.Component {
 
@@ -13,15 +19,25 @@ class AwesomeComponent extends React.Component {
     this.setState({likesCount: newLikesCount});
   }
 
+  logChange(val) {
+    console.log("Selected: " + val);
+  }
+
   render() {
     return (
       <div>
         Likes : <span>{this.state.likesCount}</span>
         <div><button onClick={this.onLike}>Like Me</button></div>
+
+        <Select
+            name="form-field-name"
+            value="one"
+            options={options}
+            onChange={this.logChange} />
       </div>
     );
   }
 
 }
 
-export default AwesomeComponent;
+module.exports = AwesomeComponent;

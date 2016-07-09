@@ -34,7 +34,7 @@ gem 'fog'
 gem 'toastr_rails'
 gem 'summernote-rails'
 gem 'react-rails'
-gem 'browserify-rails'
+gem 'foreman'
 
 gem 'kgio'
 gem 'rollbar'
