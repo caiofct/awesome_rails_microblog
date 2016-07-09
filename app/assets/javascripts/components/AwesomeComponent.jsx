@@ -10,8 +10,9 @@ class AwesomeComponent extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {likesCount : 0};
+    this.state = {likesCount : 0, selectValue : ''};
     this.onLike = this.onLike.bind(this);
+    this.changeSelectValue = this.changeSelectValue.bind(this);
   }
 
   onLike () {
@@ -19,8 +20,8 @@ class AwesomeComponent extends React.Component {
     this.setState({likesCount: newLikesCount});
   }
 
-  logChange(val) {
-    console.log("Selected: " + val);
+  changeSelectValue(value) {
+   this.setState({selectValue: value});
   }
 
   render() {
@@ -28,12 +29,13 @@ class AwesomeComponent extends React.Component {
       <div>
         Likes : <span>{this.state.likesCount}</span>
         <div><button onClick={this.onLike}>Like Me</button></div>
-
+        <br /><br />
         <Select
             name="form-field-name"
             value="one"
             options={options}
-            onChange={this.logChange} />
+            value={this.state.selectValue}
+            onChange={this.changeSelectValue} />
       </div>
     );
   }

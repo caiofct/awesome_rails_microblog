@@ -276,6 +276,7 @@ GEM
     kgio (2.10.0)
     launchy (2.4.3)
       addressable (~> 2.3)
+    libv8 (3.16.14.15)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -350,6 +351,7 @@ GEM
       execjs
       railties (>= 3.2)
       tilt
+    ref (2.0.0)
     responders (2.2.0)
       railties (>= 4.2.0, < 5.1)
     rollbar (2.12.0)
@@ -403,6 +405,9 @@ GEM
       sprockets (>= 3.0.0)
     summernote-rails (0.8.1.1)
       railties (>= 3.1)
+    therubyracer (0.12.2)
+      libv8 (~> 3.16.14.0)
+      ref
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (2.0.5)
@@ -468,6 +473,7 @@ DEPENDENCIES
   spring
   spring-watcher-listen
   summernote-rails
+  therubyracer
   toastr_rails
   turbolinks (~> 5.x)
   tzinfo-data

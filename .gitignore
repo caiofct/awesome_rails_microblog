@@ -26,3 +26,5 @@ spec/support/uploads/*
 
 # Ignore node modules
 node_modules/*
+npm-debug.log
+npm-debug.log.*

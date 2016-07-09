@@ -13,7 +13,7 @@ webpackJsonp([0],{
 
 	/* WEBPACK VAR INJECTION */(function(global) {'use strict';
 
-	var _AwesomeComponent = __webpack_require__(2);
+	var _AwesomeComponent = __webpack_require__(491);
 
 	var _AwesomeComponent2 = _interopRequireDefault(_AwesomeComponent);
 
@@ -26,92 +26,6 @@ webpackJsonp([0],{
 	// ES6 imports
 	app.AwesomeComponent = _AwesomeComponent2.default;
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
-
-/***/ },
-
-/***/ 2:
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(3);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactSelect = __webpack_require__(37);
-
-	var _reactSelect2 = _interopRequireDefault(_reactSelect);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var options = [{ value: 'one', label: 'One' }, { value: 'two', label: 'Two' }];
-
-	var AwesomeComponent = function (_React$Component) {
-	  _inherits(AwesomeComponent, _React$Component);
-
-	  function AwesomeComponent(props) {
-	    _classCallCheck(this, AwesomeComponent);
-
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(AwesomeComponent).call(this, props));
-
-	    _this.state = { likesCount: 0 };
-	    _this.onLike = _this.onLike.bind(_this);
-	    return _this;
-	  }
-
-	  _createClass(AwesomeComponent, [{
-	    key: 'onLike',
-	    value: function onLike() {
-	      var newLikesCount = this.state.likesCount + 1;
-	      this.setState({ likesCount: newLikesCount });
-	    }
-	  }, {
-	    key: 'logChange',
-	    value: function logChange(val) {
-	      console.log("Selected: " + val);
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        null,
-	        'Likes : ',
-	        _react2.default.createElement(
-	          'span',
-	          null,
-	          this.state.likesCount
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          null,
-	          _react2.default.createElement(
-	            'button',
-	            { onClick: this.onLike },
-	            'Like Me'
-	          )
-	        ),
-	        _react2.default.createElement(_reactSelect2.default, {
-	          name: 'form-field-name',
-	          value: 'one',
-	          options: options,
-	          onChange: this.logChange })
-	      );
-	    }
-	  }]);
-
-	  return AwesomeComponent;
-	}(_react2.default.Component);
-
-	module.exports = AwesomeComponent;
 
 /***/ },
 
@@ -1673,6 +1587,99 @@ webpackJsonp([0],{
 	});
 
 	module.exports = Value;
+
+/***/ },
+
+/***/ 491:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(3);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactSelect = __webpack_require__(37);
+
+	var _reactSelect2 = _interopRequireDefault(_reactSelect);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var options = [{ value: 'one', label: 'One' }, { value: 'two', label: 'Two' }];
+
+	var AwesomeComponent = function (_React$Component) {
+	  _inherits(AwesomeComponent, _React$Component);
+
+	  function AwesomeComponent(props) {
+	    _classCallCheck(this, AwesomeComponent);
+
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(AwesomeComponent).call(this, props));
+
+	    _this.state = { likesCount: 0, selectValue: '' };
+	    _this.onLike = _this.onLike.bind(_this);
+	    _this.changeSelectValue = _this.changeSelectValue.bind(_this);
+	    return _this;
+	  }
+
+	  _createClass(AwesomeComponent, [{
+	    key: 'onLike',
+	    value: function onLike() {
+	      var newLikesCount = this.state.likesCount + 1;
+	      this.setState({ likesCount: newLikesCount });
+	    }
+	  }, {
+	    key: 'changeSelectValue',
+	    value: function changeSelectValue(value) {
+	      this.setState({ selectValue: value });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _React$createElement;
+
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        'Likes : ',
+	        _react2.default.createElement(
+	          'span',
+	          null,
+	          this.state.likesCount
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement(
+	            'button',
+	            { onClick: this.onLike },
+	            'Like Me'
+	          )
+	        ),
+	        _react2.default.createElement('br', null),
+	        _react2.default.createElement('br', null),
+	        _react2.default.createElement(_reactSelect2.default, (_React$createElement = {
+	          name: 'form-field-name',
+	          value: 'one',
+	          options: options
+	        }, _defineProperty(_React$createElement, 'value', this.state.selectValue), _defineProperty(_React$createElement, 'onChange', this.changeSelectValue), _React$createElement))
+	      );
+	    }
+	  }]);
+
+	  return AwesomeComponent;
+	}(_react2.default.Component);
+
+	module.exports = AwesomeComponent;
 
 /***/ }
 

@@ -18,27 +18,27 @@ module.exports = {
       'react-dom/server',
       'react',
       'es5-shim/es5-shim',
-      'es5-shim/es5-sham',
+      'es5-shim/es5-sham'
     ],
     // Main component entry file: components.jsx
     app: [
-      './app/assets/javascripts/components',
+      './app/assets/javascripts/components'
     ],
   },
   output: {
     filename: '[name]-bundle.js',
-    path: './app/assets/webpack',
+    path: './app/assets/webpack'
   },
   // Extensions to resolve
   resolve: {
-    extensions: ['', '.js', '.jsx', '.es6.js'],
+    extensions: ['', '.js', '.jsx', '.es6.js']
   },
 
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: JSON.stringify(nodeEnv),
-      },
+        NODE_ENV: JSON.stringify(nodeEnv)
+      }
     }),
     // https://webpack.github.io/docs/list-of-plugins.html#2-explicit-vendor-chunk
     new webpack.optimize.CommonsChunkPlugin({
@@ -49,7 +49,7 @@ module.exports = {
 
       // Passing Infinity just creates the commons chunk, but moves no modules into it.
       // In other words, we only put what's in the vendor entry definition in vendor-bundle.js
-      minChunks: Infinity,
+      minChunks: Infinity
     }),
   ],
   module: {
@@ -59,13 +59,13 @@ module.exports = {
       {
         test: /\.jsx?$/,
         loader: 'babel-loader',
-        exclude: /node_modules/,
+        exclude: /node_modules/
       },
       { test: require.resolve('jquery'), loader: 'expose?jQuery' },
       { test: require.resolve('jquery'), loader: 'expose?$' },
       {
         test: require.resolve('react'),
-        loader: 'imports?shim=es5-shim/es5-shim&sham=es5-shim/es5-sham',
+        loader: 'imports?shim=es5-shim/es5-shim&sham=es5-shim/es5-sham'
       },
       { test: require.resolve('react'), loader: 'expose?React' },
       { test: require.resolve('react-dom'), loader: 'expose?ReactDOM' },

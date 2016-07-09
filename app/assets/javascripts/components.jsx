@@ -1,5 +1,5 @@
 // ES6 imports
-import AwesomeComponent from './components/AwesomeComponent.js';
+import AwesomeComponent from './components/AwesomeComponent.jsx';
 
 // Setup a global app scope
 const app = window.app = global.app = {};
