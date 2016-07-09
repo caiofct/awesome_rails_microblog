@@ -19,6 +19,9 @@
 //= require summernote/locales/pt-BR
 //= require_tree .
 //= require turbolinks
+//= require react
+//= require react_ujs
+//= require components
 
 $(document).on("turbolinks:load", function() {
   setupComponents();

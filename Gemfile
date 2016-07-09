@@ -33,6 +33,8 @@ gem 'mini_magick'
 gem 'fog'
 gem 'toastr_rails'
 gem 'summernote-rails'
+gem 'react-rails'
+gem 'browserify-rails'
 
 gem 'kgio'
 gem 'rollbar'

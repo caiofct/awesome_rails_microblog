@@ -23,3 +23,6 @@ coverage
 public/uploads/*
 spec/support/uploads/*
 .vagrant/*
+
+# Ignore node modules
+node_modules/*
