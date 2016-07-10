@@ -1,8 +1,8 @@
 // ES6 imports
-import AwesomeComponent from './components/AwesomeComponent.jsx';
+import ProfileBox from './components/ProfileBox.jsx';
 
 // Setup a global app scope
 const app = window.app = global.app = {};
 
 // Expose components to global scope
-app.AwesomeComponent = AwesomeComponent;
+app.ProfileBox = ProfileBox;

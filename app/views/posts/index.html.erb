@@ -1,23 +1,10 @@
 <div class="row">
-  <div class="col-lg-3 m-b">
-    <div class="widget-head-color-box navy-bg p-lg text-center">
-      <%= profile_image %>
-      <div class="m-b-md">
-        <h2 class="font-bold no-margins"><%=current_user.name%></h2>
-        <small>@<%=current_user.username%></small>
-      </div>
-      <div class="row">
-        <div class="col-xs-4">Postagens</div>
-        <div class="col-xs-4">Seguindo</div>
-        <div class="col-xs-4">Seguidores</div>
-      </div>
-      <div class="row">
-        <div class="col-xs-4"><%= current_user.posts.length %></div>
-        <div class="col-xs-4"><%= current_user.followeds.length %></div>
-        <div class="col-xs-4"><%= current_user.followers.length %></div>
-      </div>
-    </div>
-  </div>
+  <%= react_component("app.ProfileBox", {userName: current_user.name,
+                                         username: current_user.username,
+                                         profileImage: profile_image,
+                                         postsCount: current_user.posts.length,
+                                         followedsCount: current_user.followeds.length,
+                                         followingsCount: current_user.followers.length}) %>
   <div class="col-lg-9">
     <div class="chat-form" style="margin: 0px auto; width: 60%;">
       <div class="col-xs-2" style="width: 75px !important;">
