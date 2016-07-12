@@ -28371,7 +28371,7 @@
 
 	/* WEBPACK VAR INJECTION */(function(global) {'use strict';
 
-	var _ProfileBox = __webpack_require__(484);
+	var _ProfileBox = __webpack_require__(469);
 
 	var _ProfileBox2 = _interopRequireDefault(_ProfileBox);
 
@@ -28386,22 +28386,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 469 */,
-/* 470 */,
-/* 471 */,
-/* 472 */,
-/* 473 */,
-/* 474 */,
-/* 475 */,
-/* 476 */,
-/* 477 */,
-/* 478 */,
-/* 479 */,
-/* 480 */,
-/* 481 */,
-/* 482 */,
-/* 483 */,
-/* 484 */
+/* 469 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28419,6 +28404,11 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	/*
+	 * A Profile box to show the users's profile information like:
+	 * image, amount of posts, amount of users following and amount of users followed.
+	 */
 
 	var ProfileBox = function (_React$Component) {
 	  _inherits(ProfileBox, _React$Component);

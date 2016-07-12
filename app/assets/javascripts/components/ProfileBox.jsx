@@ -1,5 +1,9 @@
 import React from 'react'
 
+/*
+ * A Profile box to show the users's profile information like:
+ * image, amount of posts, amount of users following and amount of users followed.
+ */
 class ProfileBox extends React.Component {
 
   constructor (props) {
@@ -62,7 +66,6 @@ class ProfileBox extends React.Component {
       </div>
     )
   }
-
 }
 
 module.exports = ProfileBox

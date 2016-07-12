@@ -42,6 +42,7 @@
     "lodash": "^4.13.1",
     "react": "^15.2.0",
     "react-dom": "^15.2.0",
+    "react-quill": "^0.4.1",
     "react-select": "^1.0.0-beta13",
     "turbolinks": "^5.0.0",
     "webpack": "^1.13.1"
