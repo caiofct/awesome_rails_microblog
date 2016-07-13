@@ -15,20 +15,6 @@
       </div>
     </div>
 
-    <div class="ibox float-e-margins">
-      <div class="ibox-content">
-        <div class="chat-activity-list posts">
-          <% if @posts.blank? %>
-            <div class="text-center empty">
-              <h1>Você ainda não fez nenhuma Postagem :(</h1>
-            </div>
-          <% else %>
-            <% @posts.each do |post| %>
-              <%= render post %>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-    </div>
+    <%= react_component("app.PostList", { posts: @posts })%>
   </div>
 </div>

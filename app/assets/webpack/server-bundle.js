@@ -28375,14 +28375,19 @@
 
 	var _ProfileBox2 = _interopRequireDefault(_ProfileBox);
 
+	var _PostList = __webpack_require__(470);
+
+	var _PostList2 = _interopRequireDefault(_PostList);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	// Setup a global app scope
+	// ES6 imports
 	var app = window.app = global.app = {};
 
 	// Expose components to global scope
-	// ES6 imports
 	app.ProfileBox = _ProfileBox2.default;
+	app.PostList = _PostList2.default;
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
@@ -28532,6 +28537,271 @@
 	}(_react2.default.Component);
 
 	module.exports = ProfileBox;
+
+/***/ },
+/* 470 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(461);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _PostItem = __webpack_require__(471);
+
+	var _PostItem2 = _interopRequireDefault(_PostItem);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var createFragment = __webpack_require__(472);
+
+
+	// var createFragment = require('react-addons-create-fragment')
+
+	// var POSTS = [
+	//   {timeAgoInWords: 'aproximadamente 1 hora', content: '<b>Teste</b> Testando 1', user: { profileImage: '<a id="user_avatar_link" href="/user/caiofct"><img alt="profile" class="profile-image img-circle circle-border m-b-md" style="width: 100px; height: 100px; float: none !important;" src="/uploads/user/avatar/1/thumb_perfil_2016.jpg"></a>', name: "Caio Teixeira", username: "caiofct" }},
+	//   {timeAgoInWords: 'aproximadamente 2 horas', content: '<b>Teste</b> Testando 2', user: { profileImage: '<a id="user_avatar_link" href="/user/caiofct"><img alt="profile" class="profile-image img-circle circle-border m-b-md" style="width: 100px; height: 100px; float: none !important;" src="/uploads/user/avatar/1/thumb_perfil_2016.jpg"></a>', name: "Caio Teixeira", username: "caiofct" }},
+	//   {timeAgoInWords: 'aproximadamente 2 horas', content: '<b>Teste</b> Testando 3', user: { profileImage: '<a id="user_avatar_link" href="/user/caiofct"><img alt="profile" class="profile-image img-circle circle-border m-b-md" style="width: 100px; height: 100px; float: none !important;" src="/uploads/user/avatar/1/thumb_perfil_2016.jpg"></a>', name: "Caio Teixeira", username: "caiofct" }},
+	//   {timeAgoInWords: 'há 1 dia', content: '<b>Teste</b> Testando 4', user: { profileImage: '<a id="user_avatar_link" href="/user/caiofct"><img alt="profile" class="profile-image img-circle circle-border m-b-md" style="width: 100px; height: 100px; float: none !important;" src="/uploads/user/avatar/1/thumb_perfil_2016.jpg"></a>', name: "Caio Teixeira", username: "caiofct" }},
+	//   {timeAgoInWords: 'há 2 dias', content: '<b>Teste</b> Testando 5', user: { profileImage: '<a id="user_avatar_link" href="/user/caiofct"><img alt="profile" class="profile-image img-circle circle-border m-b-md" style="width: 100px; height: 100px; float: none !important;" src="/uploads/user/avatar/1/thumb_perfil_2016.jpg"></a>', name: "Caio Teixeira", username: "caiofct" }}
+	// ];
+
+	/*
+	 * The list of posts in a user timeline
+	 */
+
+	var PostList = function (_React$Component) {
+	  _inherits(PostList, _React$Component);
+
+	  function PostList(props) {
+	    _classCallCheck(this, PostList);
+
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(PostList).call(this, props));
+
+	    _this.posts_array = JSON.parse(props.posts);
+	    return _this;
+	  }
+
+	  _createClass(PostList, [{
+	    key: 'renderPosts',
+	    value: function renderPosts() {
+	      var items = [];
+	      this.posts_array.forEach(function (post) {
+	        items.push(_react2.default.createElement(_PostItem2.default, { post: post }));
+	      });
+
+	      if (items.length == 0) {
+	        return _react2.default.createElement(
+	          'div',
+	          { className: 'text-center empty' },
+	          _react2.default.createElement(
+	            'h1',
+	            null,
+	            'Você ainda não fez nenhuma Postagem :('
+	          )
+	        );
+	      } else {
+	        // return (
+	        createFragment(items);
+	        // )
+	      }
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'ibox float-e-margins' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'ibox-content' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'chat-activity-list posts' },
+	            this.renderPosts()
+	          )
+	        )
+	      );
+	    }
+	  }]);
+
+	  return PostList;
+	}(_react2.default.Component);
+
+	module.exports = PostList;
+
+/***/ },
+/* 471 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(461);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	/*
+	 * Represents a post item that contains a profile image of the user, it's name
+	 * and username and the post content
+	 */
+
+	var PostItem = function (_React$Component) {
+	  _inherits(PostItem, _React$Component);
+
+	  function PostItem() {
+	    _classCallCheck(this, PostItem);
+
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(PostItem).apply(this, arguments));
+	  }
+
+	  _createClass(PostItem, [{
+	    key: "render",
+	    value: function render() {
+	      return _react2.default.createElement(
+	        "div",
+	        { className: "chat-element post" },
+	        _react2.default.createElement(
+	          "a",
+	          { className: "pull-left", href: "#" },
+	          _react2.default.createElement("div", { dangerouslySetInnerHTML: { __html: this.props.user.profileImage } })
+	        ),
+	        _react2.default.createElement(
+	          "div",
+	          { className: "media-body" },
+	          _react2.default.createElement(
+	            "small",
+	            { className: "pull-right" },
+	            this.props.post.timeAgoInWords
+	          ),
+	          _react2.default.createElement(
+	            "strong",
+	            { className: "name" },
+	            this.props.post.user.name
+	          ),
+	          " ",
+	          _react2.default.createElement(
+	            "span",
+	            { className: "username" },
+	            "@",
+	            this.props.post.user.username
+	          ),
+	          _react2.default.createElement(
+	            "div",
+	            { className: "outer-content" },
+	            _react2.default.createElement(
+	              "p",
+	              { className: "content m-b-xs m-t-xs" },
+	              _react2.default.createElement("div", { dangerouslySetInnerHTML: { __html: this.props.post.content } })
+	            )
+	          )
+	        )
+	      );
+	    }
+	  }]);
+
+	  return PostItem;
+	}(_react2.default.Component);
+
+	module.exports = PostItem;
+
+/***/ },
+/* 472 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__(473).create;
+
+/***/ },
+/* 473 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2015-present, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * @providesModule ReactFragment
+	 */
+
+	'use strict';
+
+	var _prodInvariant = __webpack_require__(309);
+
+	var ReactChildren = __webpack_require__(400);
+	var ReactElement = __webpack_require__(394);
+
+	var emptyFunction = __webpack_require__(314);
+	var invariant = __webpack_require__(306);
+	var warning = __webpack_require__(313);
+
+	/**
+	 * We used to allow keyed objects to serve as a collection of ReactElements,
+	 * or nested sets. This allowed us a way to explicitly key a set or fragment of
+	 * components. This is now being replaced with an opaque data structure.
+	 * The upgrade path is to call React.addons.createFragment({ key: value }) to
+	 * create a keyed fragment. The resulting data structure is an array.
+	 */
+
+	var numericPropertyRegex = /^\d+$/;
+
+	var warnedAboutNumeric = false;
+
+	var ReactFragment = {
+	  /**
+	   * Wrap a keyed object in an opaque proxy that warns you if you access any
+	   * of its properties.
+	   * See https://facebook.github.io/react/docs/create-fragment.html
+	   */
+	  create: function (object) {
+	    if (typeof object !== 'object' || !object || Array.isArray(object)) {
+	       true ? warning(false, 'React.addons.createFragment only accepts a single object. Got: %s', object) : void 0;
+	      return object;
+	    }
+	    if (ReactElement.isValidElement(object)) {
+	       true ? warning(false, 'React.addons.createFragment does not accept a ReactElement ' + 'without a wrapper object.') : void 0;
+	      return object;
+	    }
+
+	    !(object.nodeType !== 1) ?  true ? invariant(false, 'React.addons.createFragment(...): Encountered an invalid child; DOM elements are not valid children of React components.') : _prodInvariant('0') : void 0;
+
+	    var result = [];
+
+	    for (var key in object) {
+	      if (true) {
+	        if (!warnedAboutNumeric && numericPropertyRegex.test(key)) {
+	           true ? warning(false, 'React.addons.createFragment(...): Child objects should have ' + 'non-numeric keys so ordering is preserved.') : void 0;
+	          warnedAboutNumeric = true;
+	        }
+	      }
+	      ReactChildren.mapIntoWithKeyPrefixInternal(object[key], result, key, emptyFunction.thatReturnsArgument);
+	    }
+
+	    return result;
+	  }
+	};
+
+	module.exports = ReactFragment;
 
 /***/ }
 /******/ ]);

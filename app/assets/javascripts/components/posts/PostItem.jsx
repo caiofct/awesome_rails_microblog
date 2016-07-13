@@ -9,7 +9,7 @@ class PostItem extends React.Component {
     return (
       <div className="chat-element post">
         <a className="pull-left" href="#">
-          <div dangerouslySetInnerHTML={{__html: this.props.profileImage}} />
+          <div dangerouslySetInnerHTML={{__html: this.props.user.profileImage}} />
         </a>
         <div className="media-body">
           <small className="pull-right">{this.props.post.timeAgoInWords}</small>

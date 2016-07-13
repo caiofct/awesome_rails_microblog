@@ -41,6 +41,7 @@
     "loader-utils": "^0.2.15",
     "lodash": "^4.13.1",
     "react": "^15.2.0",
+    "react-addons-create-fragment": "^15.2.1",
     "react-dom": "^15.2.0",
     "react-quill": "^0.4.1",
     "react-select": "^1.0.0-beta13",
