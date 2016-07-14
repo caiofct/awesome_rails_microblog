@@ -206,18 +206,8 @@ webpackJsonp([0],{
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var createFragment = __webpack_require__(486);
+	var createFragment = __webpack_require__(39);
 
-
-	// var createFragment = require('react-addons-create-fragment')
-
-	// var POSTS = [
-	//   {timeAgoInWords: 'aproximadamente 1 hora', content: '<b>Teste</b> Testando 1', user: { profileImage: '<a id="user_avatar_link" href="/user/caiofct"><img alt="profile" class="profile-image img-circle circle-border m-b-md" style="width: 100px; height: 100px; float: none !important;" src="/uploads/user/avatar/1/thumb_perfil_2016.jpg"></a>', name: "Caio Teixeira", username: "caiofct" }},
-	//   {timeAgoInWords: 'aproximadamente 2 horas', content: '<b>Teste</b> Testando 2', user: { profileImage: '<a id="user_avatar_link" href="/user/caiofct"><img alt="profile" class="profile-image img-circle circle-border m-b-md" style="width: 100px; height: 100px; float: none !important;" src="/uploads/user/avatar/1/thumb_perfil_2016.jpg"></a>', name: "Caio Teixeira", username: "caiofct" }},
-	//   {timeAgoInWords: 'aproximadamente 2 horas', content: '<b>Teste</b> Testando 3', user: { profileImage: '<a id="user_avatar_link" href="/user/caiofct"><img alt="profile" class="profile-image img-circle circle-border m-b-md" style="width: 100px; height: 100px; float: none !important;" src="/uploads/user/avatar/1/thumb_perfil_2016.jpg"></a>', name: "Caio Teixeira", username: "caiofct" }},
-	//   {timeAgoInWords: 'há 1 dia', content: '<b>Teste</b> Testando 4', user: { profileImage: '<a id="user_avatar_link" href="/user/caiofct"><img alt="profile" class="profile-image img-circle circle-border m-b-md" style="width: 100px; height: 100px; float: none !important;" src="/uploads/user/avatar/1/thumb_perfil_2016.jpg"></a>', name: "Caio Teixeira", username: "caiofct" }},
-	//   {timeAgoInWords: 'há 2 dias', content: '<b>Teste</b> Testando 5', user: { profileImage: '<a id="user_avatar_link" href="/user/caiofct"><img alt="profile" class="profile-image img-circle circle-border m-b-md" style="width: 100px; height: 100px; float: none !important;" src="/uploads/user/avatar/1/thumb_perfil_2016.jpg"></a>', name: "Caio Teixeira", username: "caiofct" }}
-	// ];
 
 	/*
 	 * The list of posts in a user timeline
@@ -238,9 +228,9 @@ webpackJsonp([0],{
 	  _createClass(PostList, [{
 	    key: 'renderPosts',
 	    value: function renderPosts() {
-	      var items = [];
-	      this.posts_array.forEach(function (post) {
-	        items.push(_react2.default.createElement(_PostItem2.default, { post: post }));
+	      var items = this.posts_array.map(function (post_item) {
+	        var parsed_item = JSON.parse(post_item);
+	        return _react2.default.createElement(_PostItem2.default, { key: JSON.parse(parsed_item.id), post: parsed_item });
 	      });
 
 	      if (items.length == 0) {
@@ -254,9 +244,7 @@ webpackJsonp([0],{
 	          )
 	        );
 	      } else {
-	        // return (
-	        createFragment(items);
-	        // )
+	        return items;
 	      }
 	    }
 	  }, {
@@ -327,7 +315,7 @@ webpackJsonp([0],{
 	        _react2.default.createElement(
 	          "a",
 	          { className: "pull-left", href: "#" },
-	          _react2.default.createElement("div", { dangerouslySetInnerHTML: { __html: this.props.user.profileImage } })
+	          _react2.default.createElement("div", { dangerouslySetInnerHTML: { __html: this.props.post.user.profileImage } })
 	        ),
 	        _react2.default.createElement(
 	          "div",
@@ -353,7 +341,7 @@ webpackJsonp([0],{
 	            "div",
 	            { className: "outer-content" },
 	            _react2.default.createElement(
-	              "p",
+	              "div",
 	              { className: "content m-b-xs m-t-xs" },
 	              _react2.default.createElement("div", { dangerouslySetInnerHTML: { __html: this.props.post.content } })
 	            )
@@ -370,14 +358,14 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 486:
+/***/ 39:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(487).create;
+	module.exports = __webpack_require__(40).create;
 
 /***/ },
 
-/***/ 487:
+/***/ 40:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**

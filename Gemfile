@@ -35,7 +35,6 @@ gem 'toastr_rails'
 gem 'summernote-rails'
 gem 'react-rails'
 gem 'foreman'
-gem 'active_model_serializers'
 
 gem 'kgio'
 gem 'rollbar'

@@ -2,7 +2,8 @@ class PostsController < ApplicationController
 
   # GET /posts/index
   def index
-    @posts = Post.on_user_timeline(current_user.id).order("posts.created_at DESC").to_json
+    @posts = Post.on_user_timeline(current_user.id).order("posts.created_at DESC")
+    @posts = @posts.map{|post| post.to_builder(current_user).target! }.to_json
     @post = Post.new
   end
 

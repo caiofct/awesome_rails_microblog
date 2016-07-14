@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+  include ActionView::Helpers
+  include ApplicationHelper
+  include Rails.application.routes.url_helpers
+
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -37,17 +41,13 @@ class User < ApplicationRecord
   # 1. The user to be followed can`t be the same user that wants to follow him (An user cannot follow himself)
   # 2. The user to be followed can`t be followed yet by the user (You cannot have duplicates between a follower and followed pair)
   def can_follow?(user)
-    if self.id == user.id || following?(user)
-      return false
-    end
-    true
+    self.id != user.id && !following?(user)
   end
 
   # Verifying whether a user is following another one
   def following?(user)
     followed = Following.find_by_follower_id_and_user_id(self.id, user.id)
-    return false if followed.blank?
-    true
+    !followed.blank?
   end
 
   # Adds the user in parameter to the list of followeds of the instance user
@@ -56,7 +56,6 @@ class User < ApplicationRecord
       self.followeds << user
       return true
     end
-
     false
   end
 
@@ -79,6 +78,15 @@ class User < ApplicationRecord
       conditions[:email].dup.downcase! if conditions[:email]
       conditions[:username].dup.downcase! if conditions[:username]
       where(conditions.to_hash).first
+    end
+  end
+
+  # Generates a custom json to be used in the react components
+  def to_builder(current_user)
+    Jbuilder.new do |user|
+      user.name name
+      user.username username
+      user.profileImage profile_image(:small, {}, self, false, current_user)
     end
   end
 end

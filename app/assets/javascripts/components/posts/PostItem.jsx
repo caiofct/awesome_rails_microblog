@@ -9,15 +9,15 @@ class PostItem extends React.Component {
     return (
       <div className="chat-element post">
         <a className="pull-left" href="#">
-          <div dangerouslySetInnerHTML={{__html: this.props.user.profileImage}} />
+          <div dangerouslySetInnerHTML={{__html: this.props.post.user.profileImage}} />
         </a>
         <div className="media-body">
           <small className="pull-right">{this.props.post.timeAgoInWords}</small>
           <strong className="name">{this.props.post.user.name}</strong> <span className="username">@{this.props.post.user.username}</span>
           <div className="outer-content">
-            <p className="content m-b-xs m-t-xs">
+            <div className="content m-b-xs m-t-xs">
               <div dangerouslySetInnerHTML={{__html: this.props.post.content}} />
-            </p>
+            </div>
           </div>
         </div>
       </div>
