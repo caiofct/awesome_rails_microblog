@@ -31,7 +31,7 @@ module ApplicationHelper
     end
 
     profile_style += style.map{|k,v| " #{k}: #{v}"}.join(';')
-    user_avatar = user.avatar.blank? ? "default_profile.jpg" : user.avatar.url(:thumb)
+    user_avatar = user.avatar.blank? ? user.avatar.default_url : user.avatar.url(:thumb)
 
     return image_tag(user_avatar,
                      alt: "profile", class: profile_class, style: profile_style) if size == :very_small

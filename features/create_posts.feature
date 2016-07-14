@@ -2,6 +2,7 @@ Feature: Create a post
   As a logged in user
   I want to be able to create a post
 
+  @javascript
   Scenario: Must fill the post content and be able to add the post
     Given that I have signed in
     And I am on the posts page

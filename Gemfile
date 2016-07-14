@@ -49,8 +49,8 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'factory_girl_rails', require: false
   gem 'launchy'
-  gem 'selenium-webdriver'
-  # gem 'capybara-webkit'
+  # gem 'selenium-webdriver'
+  gem 'capybara-webkit'
   gem 'faker'
   gem 'simplecov', require: false
   gem 'yard'
