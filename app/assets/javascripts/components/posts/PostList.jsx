@@ -8,11 +8,25 @@ import PostItem from './PostItem'
 class PostList extends React.Component {
   constructor (props) {
     super(props)
-    this.posts_array = JSON.parse(props.posts)
+    this.state = this.initialState();
+  }
+
+  initialState () {
+    return {
+      posts_array: []
+    }
+  }
+
+  setPostsArray (posts) {
+    this.setState({ posts_array: JSON.parse(posts) })
+  }
+
+  componentDidMount () {
+    this.setPostsArray(this.props.posts)
   }
 
   renderPosts () {
-    var items = this.posts_array.map(function(post_item) {
+    var items = this.state.posts_array.map(function(post_item) {
       var parsed_item = JSON.parse(post_item)
       return (<PostItem key={JSON.parse(parsed_item.id)} post={parsed_item} />)
     })

@@ -15,14 +15,13 @@
 //= require app-bundle
 
 //= require turbolinks
-//= require cable
+
 //= require react_ujs
+//= require cable
 
 //= require jquery.turbolinks
 //= require bootstrap-sprockets
 //= require toastr_rails
-//= require summernote
-//= require summernote/locales/pt-BR
 
 
 $(document).on("turbolinks:load", function() {
