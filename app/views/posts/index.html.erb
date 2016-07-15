@@ -6,15 +6,8 @@
                                          followedsCount: current_user.followeds.length,
                                          followingsCount: current_user.followers.length}) %>
   <div class="col-lg-9">
-    <div class="chat-form" style="margin: 0px auto; width: 60%;">
-      <div class="col-xs-2" style="width: 75px !important;">
-        <%= profile_image(:small, {float: 'left !important', "margin-right": "15px" }) %>
-      </div>
-      <div class="col-xs-10">
-        <%= render "form" %>
-      </div>
-    </div>
-
-    <%= react_component("app.PostList", { posts: @posts })%>
+    <%= react_component("app.PostForm", { profileImage: profile_image(:small, {float: 'left !important', "margin-right": "15px" }),
+                                          actionUrl: posts_url, authenticityToken: form_authenticity_token }) %>
+    <%= react_component("app.PostList", { posts: @posts }) %>
   </div>
 </div>
