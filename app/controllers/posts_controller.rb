@@ -16,10 +16,12 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to posts_path, notice: 'Postagem criada com sucesso.' }
-        format.json { render :index, status: :created, location: posts_path }
+        # format.html { redirect_to posts_path, notice: 'Postagem criada com sucesso.' }
+        # format.json { render :index, status: :created, location: posts_path }
+        ActionCable.server.broadcast 'posts', post: @post
+        format.json { render json: @post, status: :created, location: posts_path }
       else
-        @posts = Post.on_user_timeline(current_user.id).order("posts.created_at DESC")
+        # @posts = Post.on_user_timeline(current_user.id).order("posts.created_at DESC")
         format.html { render :index }
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end

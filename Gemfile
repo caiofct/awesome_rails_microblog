@@ -34,6 +34,7 @@ gem 'fog'
 gem 'toastr_rails'
 gem 'react-rails'
 gem 'foreman'
+gem 'redis'
 
 gem 'kgio'
 gem 'rollbar'

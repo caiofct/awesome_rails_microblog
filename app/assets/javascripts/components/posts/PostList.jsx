@@ -25,6 +25,20 @@ class PostList extends React.Component {
     this.setPostsArray(this.props.posts)
   }
 
+  updatePostList (post) {
+    this.setState({ posts_array: this.state.posts_array.push(JSON.parse(post)) })
+  }
+
+  setupSubscription () {
+    App.comments = App.cable.subscriptions.create("PostsChannel", {
+      received: function(data) {
+        this.updatePostList(data.post);
+      },
+
+      updatePostList: this.updatePostList
+    });
+  }
+
   renderPosts () {
     var items = this.state.posts_array.map(function(post_item) {
       var parsed_item = JSON.parse(post_item)

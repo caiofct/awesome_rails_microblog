@@ -13,15 +13,12 @@
 
 //= require vendor-bundle
 //= require app-bundle
-
 //= require turbolinks
-
 //= require react_ujs
-//= require cable
-
 //= require jquery.turbolinks
 //= require bootstrap-sprockets
 //= require toastr_rails
+//= require_tree ./channels
 
 
 $(document).on("turbolinks:load", function() {
