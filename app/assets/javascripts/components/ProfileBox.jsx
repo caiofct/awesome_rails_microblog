@@ -59,8 +59,8 @@ class ProfileBox extends React.Component {
           </div>
           <div className="row">
             <div className="col-xs-4">{this.state.postsCount}</div>
-            <div className="col-xs-4">{this.state.followingsCount}</div>
             <div className="col-xs-4">{this.state.followedsCount}</div>
+            <div className="col-xs-4">{this.state.followingsCount}</div>
           </div>
         </div>
       </div>

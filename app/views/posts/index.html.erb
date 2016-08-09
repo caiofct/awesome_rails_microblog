@@ -8,6 +8,6 @@
   <div class="col-lg-9">
     <%= react_component("app.PostForm", { profileImage: profile_image(:small, {float: 'left !important', "margin-right": "15px" }),
                                           actionUrl: posts_url, authenticityToken: form_authenticity_token }) %>
-    <%= react_component("app.PostList", { posts: @posts }) %>
+    <%= react_component("app.PostList", { posts: @posts, followed_users: @followed_users }) %>
   </div>
 </div>
