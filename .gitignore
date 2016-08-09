@@ -25,7 +25,6 @@ spec/support/uploads/*
 .vagrant/*
 
 # Ignore node modules
-app/assets/webpack/*
 node_modules/*
 npm-debug.log
 npm-debug.log.*
