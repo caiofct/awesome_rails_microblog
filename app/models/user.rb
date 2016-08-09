@@ -84,6 +84,7 @@ class User < ApplicationRecord
   # Generates a custom json to be used in the react components
   def to_builder(current_user)
     Jbuilder.new do |user|
+      user.id id
       user.name name
       user.username username
       user.profileImage profile_image(:small, {}, self, false, current_user)

@@ -1,5 +1,4 @@
 import React from 'react'
-var createFragment = require('react-addons-create-fragment')
 import PostItem from './PostItem'
 
 /*
@@ -13,7 +12,8 @@ class PostList extends React.Component {
 
   initialState () {
     return {
-      posts_array: []
+      posts_array: [],
+      followeds: []
     }
   }
 
@@ -21,27 +21,49 @@ class PostList extends React.Component {
     this.setState({ posts_array: JSON.parse(posts) })
   }
 
+  setFollowedsArray(followeds) {
+    let lfolloweds = []
+    JSON.parse(followeds).map(function(followed) {
+      lfolloweds.push(JSON.parse(followed).id)
+    })
+    this.setState({ followeds: lfolloweds })
+  }
+
+  addNewPost (post) {
+    let new_post = JSON.parse(post)
+    if (this.state.followeds.find(x => x == new_post.user.id) != undefined) {
+      let current_array = this.state.posts_array
+      current_array.unshift(new_post)
+      this.setState({ posts_array: current_array })
+    }
+  }
+
   componentDidMount () {
+    this.setFollowedsArray(this.props.followed_users)
     this.setPostsArray(this.props.posts)
+    this.setupSubscription()
   }
 
-  updatePostList (post) {
-    this.setState({ posts_array: this.state.posts_array.push(JSON.parse(post)) })
-  }
-
-  setupSubscription () {
-    App.comments = App.cable.subscriptions.create("PostsChannel", {
-      received: function(data) {
-        this.updatePostList(data.post);
+  setupSubscription() {
+    App.cable.subscriptions.create("PostsChannel", {
+      connected() {
+        // console.log('Connected!')
       },
 
-      updatePostList: this.updatePostList
-    });
+      received(data) {
+        this.addNewPost(data.post);
+      },
+
+      addNewPost: this.addNewPost.bind(this)
+    })
   }
 
   renderPosts () {
     var items = this.state.posts_array.map(function(post_item) {
-      var parsed_item = JSON.parse(post_item)
+      var parsed_item = post_item
+      if (typeof(post_item) != 'object') {
+        parsed_item = JSON.parse(post_item)
+      }
       return (<PostItem key={JSON.parse(parsed_item.id)} post={parsed_item} />)
     })
 

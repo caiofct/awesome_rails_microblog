@@ -4,6 +4,9 @@ class PostsController < ApplicationController
   def index
     @posts = Post.on_user_timeline(current_user.id).order("posts.created_at DESC")
     @posts = @posts.map{|post| post.to_builder(current_user).target! }.to_json
+    @followed_users = Following.where("follower_id = ?", current_user.id).map{|user| user.to_builder.target! }
+    @followed_users << Following.new(user: current_user).to_builder.target!
+    @followed_users = @followed_users.to_json
     @post = Post.new
   end
 
@@ -16,13 +19,9 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        # format.html { redirect_to posts_path, notice: 'Postagem criada com sucesso.' }
-        # format.json { render :index, status: :created, location: posts_path }
-        ActionCable.server.broadcast 'posts', post: @post
+        ActionCable.server.broadcast 'posts', post: @post.to_builder(current_user).target!
         format.json { render json: @post, status: :created, location: posts_path }
       else
-        # @posts = Post.on_user_timeline(current_user.id).order("posts.created_at DESC")
-        format.html { render :index }
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end

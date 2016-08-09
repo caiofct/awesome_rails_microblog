@@ -7,6 +7,15 @@ class Following < ApplicationRecord
 
   validate :user_cant_follow_himself
 
+  # Generates a custom json to be used in the react components
+  def to_builder
+    Jbuilder.new do |following|
+      following.id self.user.id
+      following.name self.user.name
+      following.username self.user.username
+    end
+  end
+
   private
 
   def user_cant_follow_himself

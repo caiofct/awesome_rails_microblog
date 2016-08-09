@@ -2,6 +2,5 @@
 //= require_self
 //= require_tree .
 
-this.App = {};
-
+let App = {};
 App.cable = ActionCable.createConsumer();

@@ -27,12 +27,12 @@ gem 'font-awesome-rails', '~> 4.6.3'
 gem 'simple_form', github: "plataformatec/simple_form"
 gem 'devise', '~> 4.2.0'
 gem 'bootstrap-sass'
-gem 'jquery-turbolinks'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
 gem 'toastr_rails'
 gem 'react-rails'
+# gem 'sprockets-es6', require: 'sprockets/es6'
 gem 'foreman'
 gem 'redis'
 
