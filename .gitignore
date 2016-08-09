@@ -21,6 +21,7 @@
 .byebug_history
 coverage
 public/uploads/*
+public/assets/*
 spec/support/uploads/*
 .vagrant/*
 

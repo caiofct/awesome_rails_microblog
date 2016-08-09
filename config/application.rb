@@ -13,6 +13,7 @@ module RailsMicroblog
     config.i18n.default_locale = :'pt-BR'
     config.i18n.available_locales = %w(pt-BR en)
     config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
+    config.assets.precompile += %w( .png .jpg .jpeg .gif)
     config.assets.precompile += %w( .svg .otf .eot .woff .ttf)
 
     # Settings for the pool of renderers:
