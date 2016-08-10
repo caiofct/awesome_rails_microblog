@@ -87,7 +87,7 @@ class User < ApplicationRecord
       user.id id
       user.name name
       user.username username
-      user.profileImage profile_image(:small, {}, self, false, current_user)
+      user.profileImage profile_image(:small, {}, self, false, current_user, true)
     end
   end
 end
