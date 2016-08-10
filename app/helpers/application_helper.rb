@@ -33,6 +33,7 @@ module ApplicationHelper
     profile_style += style.map{|k,v| " #{k}: #{v}"}.join(';')
     default_image = from_model ? user.avatar.default_url : "default_profile.jpg"
     user_avatar = user.avatar.blank? ? default_image : user.avatar.url(:thumb)
+    user_default_avatar = user.avatar.blank? ? user.avatar.default_url : user.avatar.url(:thumb)
 
     return image_tag(user_avatar,
                      alt: "profile", class: profile_class, style: profile_style) if size == :very_small
@@ -47,7 +48,7 @@ module ApplicationHelper
         content_tag(:div,
                     content_tag(:i, "", class: "fa fa-camera user-profile-overlay"),
                     class: profile_class,
-                    style: "background: url('#{user_avatar}') no-repeat; background-size: 100% 100%; margin: 0 auto 20px; #{profile_style}")
+                    style: "background: url('#{user_default_avatar}') no-repeat; background-size: 100% 100%; margin: 0 auto 20px; #{profile_style}")
       end
     end
 
