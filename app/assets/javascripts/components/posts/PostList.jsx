@@ -1,5 +1,6 @@
 import React from 'react'
 import PostItem from './PostItem'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 /*
  * The list of posts in a user timeline
@@ -35,6 +36,10 @@ class PostList extends React.Component {
       let current_array = this.state.posts_array
       current_array.unshift(new_post)
       this.setState({ posts_array: current_array })
+
+      if (window.pageYOffset > 0) {
+        $("#more-posts-btn").removeClass("hidden");
+      }
     }
   }
 
@@ -58,13 +63,19 @@ class PostList extends React.Component {
     })
   }
 
+  onMorePostsClick(event) {
+    //go to the top of the page to see new posts
+    window.scrollTo(0, 0)
+    $(event.target).addClass("hidden")
+  }
+
   renderPosts () {
     var items = this.state.posts_array.map(function(post_item) {
       var parsed_item = post_item
       if (typeof(post_item) != 'object') {
         parsed_item = JSON.parse(post_item)
       }
-      return (<PostItem key={JSON.parse(parsed_item.id)} post={parsed_item} />)
+      return (<PostItem key={parsed_item.id} post={parsed_item} />)
     })
 
     if (items.length == 0) {
@@ -83,7 +94,10 @@ class PostList extends React.Component {
   render () {
     return (
       <div className="ibox float-e-margins">
-        <div className="ibox-content">
+        <div id="more-posts-btn" className="btn btn-info more-posts hidden" onClick={this.onMorePostsClick}>
+          Novas Postagens
+        </div>
+        <div className="ibox-content posts">
           <div className="chat-activity-list posts">
             { this.renderPosts() }
           </div>
