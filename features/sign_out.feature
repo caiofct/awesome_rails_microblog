@@ -7,4 +7,4 @@ Feature: Sign out from the application
     Given that I have signed in
     When I click in the "sign_out_link" link
     Then I should be redirected to the homepage
-    And I should see the message "Saiu com sucesso."
+    And I should see the message "Signed out successfully."

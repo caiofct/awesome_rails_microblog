@@ -11,11 +11,10 @@ class Following < ApplicationRecord
 
   def user_cant_follow_himself
     if self.user_id == self.follower_id
-      errors.add(:user_id, "Usuário não pode seguir a si mesmo")
-      errors.add(:follower_id, "Usuário não pode seguir a si mesmo")
+      errors.add(:user_id, :cant_follow_himself)
+      errors.add(:follower_id, :cant_follow_himself)
       return false
     end
-
     true
   end
 end

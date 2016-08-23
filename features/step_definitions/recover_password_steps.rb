@@ -15,7 +15,7 @@ Then(/^I should be redirected to the sign_in page$/) do
 end
 
 Then(/^I should receive a recover password email$/) do
-  expect(last_email.body.match("Esqueceu a senha")).not_to be_blank
+  expect(last_email.body.match("Forgot your password")).not_to be_blank
 end
 
 Then(/^I should be able to click in the recover password link on the email to got to the change password page$/) do

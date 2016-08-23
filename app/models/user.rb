@@ -37,17 +37,12 @@ class User < ApplicationRecord
   # 1. The user to be followed can`t be the same user that wants to follow him (An user cannot follow himself)
   # 2. The user to be followed can`t be followed yet by the user (You cannot have duplicates between a follower and followed pair)
   def can_follow?(user)
-    if self.id == user.id || following?(user)
-      return false
-    end
-    true
+    self.id != user.id && !following?(user)
   end
 
   # Verifying whether a user is following another one
   def following?(user)
-    followed = Following.find_by_follower_id_and_user_id(self.id, user.id)
-    return false if followed.blank?
-    true
+    !Following.find_by_follower_id_and_user_id(self.id, user.id).blank?
   end
 
   # Adds the user in parameter to the list of followeds of the instance user
@@ -56,7 +51,6 @@ class User < ApplicationRecord
       self.followeds << user
       return true
     end
-
     false
   end
 

@@ -37,6 +37,7 @@ en:
     following_count: "Following"
     followers_count: "Followers"
     empty: "You did not create any post yet :("
+    successfully_created: "Post successfully created."
   users:
     disable_following: "Following..."
     follow: "Follow"

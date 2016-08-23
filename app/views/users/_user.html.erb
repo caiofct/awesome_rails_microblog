@@ -5,12 +5,12 @@
     </div>
     <div class="col-md-7 text-right">
       <% if !current_user.blank? && current_user.can_follow?(user) %>
-        <%= link_to follow_user_path(user.username), class: "btn btn-default", style: "color: #676a6c;", disable_with: t('users.disable_following') do %>
+        <%= link_to follow_user_path(user.username), class: "follow-btn btn btn-default", style: "color: #676a6c;", disable_with: t('users.disable_following') do %>
           <i class="fa fa-user-plus"></i>
           <%=t('users.follow')%>
         <% end %>
       <% elsif !current_user.blank? && current_user.following?(user) %>
-        <%= link_to unfollow_user_path(user.username), class: "btn btn-success", disable_with: t('users.disable_following') do %>
+        <%= link_to unfollow_user_path(user.username), class: "unfollow-btn btn btn-success", disable_with: t('users.disable_following') do %>
           <i class="fa fa-user-times"></i>
           <%=t('users.unfollow')%>
         <% end %>

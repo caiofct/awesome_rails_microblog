@@ -37,6 +37,7 @@ pt-BR:
     following_count: "Seguindo"
     followers_count: "Seguidores"
     empty: "Você ainda não fez nenhuma Postagem :("
+    successfully_created: "Postagem criada com sucesso."
   users:
     disable_following: "Seguindo..."
     follow: "Seguir"

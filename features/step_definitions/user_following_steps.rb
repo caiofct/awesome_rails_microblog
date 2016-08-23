@@ -6,6 +6,6 @@ Then(/^the user must receive a notification email with the subject "([^"]*)"$/) 
   last_email.subject.match(/#{subject}/)
 end
 
-Then(/^I should not view the "([^"]*)" button$/) do |button_name|
-  expect(page.has_content?(button_name)).not_to be true
+Then(/^I should not view the follow button$/) do
+  expect(page.all(:css, "a.follow-btn").length).to eq 0
 end

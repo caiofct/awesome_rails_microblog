@@ -15,7 +15,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to posts_path, notice: 'Postagem criada com sucesso.' }
+        format.html { redirect_to posts_path, notice: t('posts.successfully_created') }
         format.json { render :index, status: :created, location: posts_path }
       else
         @posts = Post.on_user_timeline(current_user.id).order("posts.created_at DESC")

@@ -13,4 +13,11 @@ pt-BR:
       post:
         content: "Postagem"
         user: "Usuário"
-
+      following:
+        errors:
+          user_id:
+            messages:
+              cant_follow_himself: "Usuário não pode seguir a si mesmo"
+          follower_id:
+            messages:
+              cant_follow_himself: "Usuário não pode seguir a si mesmo"
