@@ -4,7 +4,7 @@
       <%= profile_image(:default, {}, @user, true) %>
       <%= simple_form_for(@user, html: { multipart: true, style: "height: 0px;" }) do |f| %>
         <%= f.input :avatar, as: :file, wrapper_html: { style: "visibility: hidden;" } %>
-        <%= f.submit "Atualizar", id: "send_avatar_btn", style: "visibility: hidden;" %>
+        <%= f.submit t('users.update_avatar'), id: "send_avatar_btn", style: "visibility: hidden;" %>
       <% end %>
       <div class="m-b-xs">
         <h2 id="profile-name" class="font-bold no-margins"><%=@user.name%></h2>
@@ -12,27 +12,27 @@
       </div>
       <div class="m-b-xs">
         <i class="fa fa-calendar"></i>&nbsp;&nbsp;
-        Juntou-se em <%= l @user.created_at, format: :default %>
+        <%=t('users.joined_at', date: l(@user.created_at, format: :default))%> <%=  %>
       </div>
       <% if !current_user.blank? && current_user.can_follow?(@user) %>
         <div class="row">
-          <%= link_to follow_user_path(@user.username), class: "btn btn-default", style: "color: #676a6c;", disable_with: "Seguindo..." do %>
+          <%= link_to follow_user_path(@user.username), class: "btn btn-default", style: "color: #676a6c;", disable_with: t('users.disable_following') do %>
             <i class="fa fa-user-plus"></i>
-            Seguir
+            <%=t('users.follow')%>
           <% end %>
         </div>
       <% elsif !current_user.blank? && current_user.following?(@user) %>
         <div class="row">
-          <%= link_to unfollow_user_path(@user.username), class: "btn btn-success", disable_with: "Seguindo..." do %>
+          <%= link_to unfollow_user_path(@user.username), class: "btn btn-success", disable_with: t('users.disable_following') do %>
             <i class="fa fa-user-times"></i>
-            Deixar de seguir
+            <%=t('users.unfollow')%>
           <% end %>
         </div>
       <% end %>
       <div class="row m-t-xs">
-        <div class="col-xs-4">Postagens</div>
-        <div class="col-xs-4">Seguindo</div>
-        <div class="col-xs-4">Seguidores</div>
+        <div class="col-xs-4"><%=t('posts.post_count')%></div>
+        <div class="col-xs-4"><%=t('posts.following_count')%></div>
+        <div class="col-xs-4"><%=t('posts.followers_count')%></div>
       </div>
       <div class="row">
         <div class="col-xs-4"><%= @user.posts.length %></div>
@@ -47,7 +47,9 @@
         <div class="chat-activity-list posts">
           <% if @posts.blank? %>
             <div class="text-center empty">
-              <h1><%=@user.name%> ainda não fez nenhuma Postagem :(</h1>
+              <h1>
+                <%=t('users.empty_for_user', user_name: @user.name)%>
+              </h1>
             </div>
           <% else %>
             <% @posts.each do |post| %>
@@ -59,4 +61,3 @@
     </div>
   </div>
 </div>
-

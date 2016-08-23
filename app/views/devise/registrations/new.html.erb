@@ -1,31 +1,31 @@
 <div class="border-form-div text-center loginscreen animated fadeInDown">
   <div>
-    <h3 class="custom-text-color text-center">Crie sua conta</h3>
+    <h3 class="custom-text-color text-center"><%=t('signup.label')%></h3>
 
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "m-t", role: "form" }) do |f| %>
       <%= f.error_notification %>
 
       <div class="form-group">
-        <%= f.input :name, label: false, placeholder: "Nome", required: true, class: "form-control", type: "name" %>
+        <%= f.input :name, label: false, placeholder: t('activerecord.attributes.user.name'), required: true, class: "form-control", type: "name" %>
       </div>
 
       <div class="form-group">
-        <%= f.input :email, label: false, placeholder: "Email", required: true, class: "form-control", type: "email" %>
+        <%= f.input :email, label: false, placeholder: t('activerecord.attributes.user.email'), required: true, class: "form-control", type: "email" %>
       </div>
 
       <div class="form-group">
-        <%= f.input :username, label: false, placeholder: "Nome de Usuário", required: true, class: "form-control", type: "name" %>
+        <%= f.input :username, label: false, placeholder: t('activerecord.attributes.user.username'), required: true, class: "form-control", type: "name" %>
       </div>
 
       <div class="form-group">
-        <%= f.input :password, label: false, placeholder: "Senha", required: true, class: "form-control", type: "password" %>
+        <%= f.input :password, label: false, placeholder: t('activerecord.attributes.user.password'), required: true, class: "form-control", type: "password" %>
       </div>
 
       <div class="form-group">
-        <%= f.input :password_confirmation, label: false, placeholder: "Confirmar Senha", required: true, class: "form-control", type: "password" %>
+        <%= f.input :password_confirmation, label: false, placeholder: t('activerecord.attributes.user.password_confirmation'), required: true, class: "form-control", type: "password" %>
       </div>
 
-      <%= f.button :submit, "Criar Conta", class: "btn-primary full-width block m-b" %>
+      <%= f.button :submit, t('signup.create'), class: "btn-primary full-width block m-b" %>
     <% end %>
   </div>
 </div>

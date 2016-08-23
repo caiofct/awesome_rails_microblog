@@ -45,9 +45,10 @@ function setupComponents() {
   // post field
   $('[data-provider="summernote"]').each(function(){
     if ($(this).find(".note-editable").length <= 0) {
+      var text_field = $(this);
       $(this).summernote({
         lang: 'pt-BR',
-        placeholder: "O quê está acontecendo?",
+        placeholder: $(text_field).attr('placeholder'),
         toolbar: false,
         height: '90px',
         maxHeight: '90px',

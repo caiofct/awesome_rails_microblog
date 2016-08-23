@@ -1,5 +1,5 @@
 <div class="border-form-div">
-  <h4 class="text-center">Alterar sua senha para acessar o</h4>
+  <h4 class="text-center"><%=t('password.change_password_label')%></h4>
   <h2 class="text-center">AwesomeRailsMicroblog</h2>
 
   <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put, class: "m-t", role: "form" }) do |f| %>
@@ -9,15 +9,13 @@
     <%= f.full_error :reset_password_token %>
 
     <div class="form-group">
-      <%= f.input :password, placeholder: "Nova Senha", required: true, autofocus: true, class: "form-control" %>
+      <%= f.input :password, placeholder: t('password.new'), required: true, autofocus: true, class: "form-control" %>
     </div>
 
     <div class="form-group">
-      <%= f.input :password_confirmation, placeholder: "Confirme sua Nova Senha", required: true, class: "form-control" %>
+      <%= f.input :password_confirmation, placeholder: t('password.confirm_new'), required: true, class: "form-control" %>
     </div>
 
-    <%= f.button :submit, "Alterar senha", class: "btn-primary full-width block m-b" %>
+    <%= f.button :submit, t("password.change_password"), class: "btn-primary full-width block m-b" %>
   <% end %>
 </div>
-
-
