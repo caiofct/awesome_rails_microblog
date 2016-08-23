@@ -29,6 +29,7 @@ pt-BR:
   menu:
     home: "Início"
     search_placeholder: "Use :all para todos os usuários"
+    see_profile: "Ver perfil"
   posts:
     whats_happening: "O quê está acontecendo?"
     post: "Postar"

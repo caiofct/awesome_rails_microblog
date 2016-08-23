@@ -28,7 +28,7 @@
                   <li>
                     <%= link_to user_profile_path(current_user.username) do %>
                       <div>
-                        <div>Ver perfil</div>
+                        <div><%=t('menu.see_profile')%></div>
                         <div style="font-size: 12px; margin-top: -8px; color: rgb(136, 153, 166);">@<%=current_user.username%></div>
                       </div>
                     <% end %>

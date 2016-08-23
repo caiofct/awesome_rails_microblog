@@ -29,6 +29,7 @@ en:
   menu:
     home: "Home"
     search_placeholder: "Use :all to search for all users"
+    see_profile: "See profile"
   posts:
     whats_happening: "What is happening?"
     post: "Post"
