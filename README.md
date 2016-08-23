@@ -1,42 +1,49 @@
 ## Awesome Rails Microblog
 
-## Funcionalidades
+A much simpler twitter clone.
 
-### O usuário pode
+## Features
 
-* Criar uma nova conta
-* Realizar o login
-* Realizar o logout
+The are two basic roles:
+* Logged user
+* Anonymous user
 
-### O usuário logado pode
+### The anonymous user can
 
-* Criar postagens
-* Ver as postagens criadas
-* Buscar por outros usuários
-* Visualizar o perfil de outros usuários com suas postagens
-* Seguir outro usuário
-* Visualizar na sua página inicial as suas postagens e dos usuários aos quais está seguindo
-* Visualizar quantos usuários ele segue e quantos o estão seguindo
-* Receber notificação ao ser seguido por um usuário
-* Ver o seu próprio perfil e alterar seu avatar
+* Create an account
+* Sign in
+* Sign out
+* See a created profile
+* See all the posts from another user profile page
+* Search for an specific or all users
 
-### O usuário não logado pode
+### A logged user can
 
-* Ver um perfil criado
-* Ver as postagens do perfil
-* Buscar por algum usuário ou todos os usuários
+* Create a post
+* See the created posts
+* Search for another users
+* See another user profile alongside his posts
+* Follow another user
+* See on his home page all of his posts and the posts from the users that he is following
+* See how much users he follows and how many users are following him
+* Receive an email notification when another user follows him
+* See his own profile page and change his profile image
 
-## Dependências básicas
+## Basic dependencies
 
-* Ruby >= 2.3.1
-* Rails v5.0.0rc1
+* Ruby 2.3.1
+* Rails v5.0.0
 * rspec-rails 3.5.0.beta3
 * cucumber-rails 1.4.3
 
-## Como rodar os testes unitários
+## How to run the unit tests
 
 bundle exec rspec
 
-## Como rodar os testes de aceitação
+## How to run the acceptance tests
 
 bundle exec rails cucumber
+
+## How to run the server on localhost
+
+foreman start -p 3000
