@@ -1,11 +1,11 @@
 <li class="<%= 'active' if params[:controller] == 'home' || params[:controller] == 'posts' %>">
   <% if current_user %>
     <%= link_to posts_path do %>
-      <span class="nav-label">Início</span>
+      <span class="nav-label"><%= t("menu.home")%></span>
     <% end %>
   <% else %>
     <%= link_to root_path do %>
-      <span class="nav-label">Início</span>
+      <span class="nav-label"><%= t("menu.home")%></span>
     <% end %>
   <% end %>
 </li>

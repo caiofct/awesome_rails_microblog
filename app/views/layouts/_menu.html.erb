@@ -13,7 +13,7 @@
           <ul class="nav navbar-top-links navbar-right">
             <form action="/users/search" method="GET" class="navbar-form navbar-left">
               <div class="form-group" style="width: 250px;">
-                <input id="search-box" class="form-control search-input" name="q" type="text" placeholder="Use :all para todos os usuários" value="<%=params[:q]%>"></input>
+                <input id="search-box" class="form-control search-input" name="q" type="text" placeholder="<%=t('menu.search_placeholder')%>" value="<%=params[:q]%>"></input>
                 <input type="submit" style="visibility: hidden; height: 0; width: 0; position: absolute;" value="Buscar">
               </div>
             </form>
@@ -34,13 +34,13 @@
                     <% end %>
                   </li>
                   <li>
-                    <%= link_to "Sair", destroy_user_session_path, method: :delete, id: "sign_out_link" %>
+                    <%= link_to t('login.signout'), destroy_user_session_path, method: :delete, id: "sign_out_link" %>
                   </li>
                 </ul>
               </li>
             <% else %>
               <li>
-                <%= link_to "Entrar", new_user_session_path %>
+                <%= link_to t('login.signin'), new_user_session_path %>
               </li>
             <% end %>
           </ul>

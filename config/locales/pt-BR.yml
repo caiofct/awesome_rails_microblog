@@ -1,4 +1,51 @@
 pt-BR:
+  buttons:
+    send: "Enviar"
+    cancel: "Cancelar"
+  home:
+    welcome: "Bew vindo ao"
+    confirmed_users: "Usuários ativos"
+    posts: "Postagens"
+  login:
+    welcome: "Fazer login para acessar o"
+    username: "Usuário ou Email"
+    password: "Senha"
+    remember_me: "Lembrar meus dados neste computador"
+    signin: "Entrar"
+    signout: "Sair"
+    forgot_password: "Esqueceu a senha?"
+    new_account_label: "Ainda não possui uma conta?"
+    signup: "Criar conta"
+  password:
+    recover_label: "Recuperar senha para acessar o"
+    email_placeholder: "Digite seu email"
+    change_password_label: "Alterar sua senha para acessar o"
+    new: "Nova senha"
+    confirm_new: "Confirme sua nova senha"
+    change_password: "Alterar senha"
+  signup:
+    label: "Crie sua conta"
+    create: "Criar conta"
+  menu:
+    home: "Início"
+    search_placeholder: "Use :all para todos os usuários"
+  posts:
+    whats_happening: "O quê está acontecendo?"
+    post: "Postar"
+    post_count: "Postagens"
+    following_count: "Seguindo"
+    followers_count: "Seguidores"
+    empty: "Você ainda não fez nenhuma Postagem :("
+  users:
+    disable_following: "Seguindo..."
+    follow: "Seguir"
+    unfollow: "Deixar de seguir"
+    update_avatar: "Atualizar"
+    joined_at: "Juntou-se em %{date}"
+    empty_for_user: "%{username} ainda não fez nenhuma Postagem :("
+  user_mailer:
+    new_follower: "Você tem um novo seguidor."
+    see_profile: "Ver Perfil"
   confirm_delete: "Tem certeza que deseja remover?"
   date:
     abbr_day_names:

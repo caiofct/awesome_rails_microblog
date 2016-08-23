@@ -1,5 +1,5 @@
 <p><%= @user.name %>,</p>
-<p>Você tem um novo seguidor.</p>
+<p><%= I18n.t('user_mailer.new_follower') %></p>
 
 <table align="center" cellpadding="0" cellspacing="0" border="0" width="670">
   <tbody>
@@ -22,5 +22,5 @@
 </table>
 
 <div style="margin-top: 30px; text-align: center;">
-  <%= link_to 'Ver Perfil', Rails.application.routes.url_helpers.url_for(controller: :users, action: :show, username: @follower.username), style: "-moz-user-select: none; background-image: none; border: 1px solid transparent; cursor: pointer; display: inline-block; font-size: 14px; font-weight: normal; line-height: 1.42857; margin-bottom: 0; padding: 6px 12px; text-align: center; vertical-align: middle; white-space: nowrap; text-decoration: none; border-radius: 3px; background-color: #1ab394; border-color: #1ab394; color: #FFFFFF;" %>
+  <%= link_to I18n.t('user_mailer.see_profile'), Rails.application.routes.url_helpers.url_for(controller: :users, action: :show, username: @follower.username), style: "-moz-user-select: none; background-image: none; border: 1px solid transparent; cursor: pointer; display: inline-block; font-size: 14px; font-weight: normal; line-height: 1.42857; margin-bottom: 0; padding: 6px 12px; text-align: center; vertical-align: middle; white-space: nowrap; text-decoration: none; border-radius: 3px; background-color: #1ab394; border-color: #1ab394; color: #FFFFFF;" %>
 </div>

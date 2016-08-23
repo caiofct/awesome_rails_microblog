@@ -10,7 +10,7 @@ module RailsMicroblog
   class Application < Rails::Application
     config.encoding = 'utf-8'
     config.time_zone = 'America/Fortaleza'
-    config.i18n.default_locale = :'pt-BR'
+    config.i18n.default_locale = :'en'
     config.i18n.available_locales = %w(pt-BR en)
     # config.active_record.raise_in_transactional_callbacks = true
     config.assets.paths << Rails.root.join('app', 'assets', 'fonts')

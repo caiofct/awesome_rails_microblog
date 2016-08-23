@@ -1,0 +1,12 @@
+en:
+  link:
+    send: "Send"
+    back: "Cancel"
+    new: "Create"
+    show: "Show"
+    edit: "Edit"
+    destroy: "Remove"
+    actions: "Actions"
+    audit: "Audit"
+    clear_filter: "Clear Filter"
+    search: "Ok"

@@ -7,9 +7,9 @@
         <small>@<%=current_user.username%></small>
       </div>
       <div class="row">
-        <div class="col-xs-4">Postagens</div>
-        <div class="col-xs-4">Seguindo</div>
-        <div class="col-xs-4">Seguidores</div>
+        <div class="col-xs-4"><%=t('posts.post_count')%></div>
+        <div class="col-xs-4"><%=t('posts.following_count')%></div>
+        <div class="col-xs-4"><%=t('posts.followers_count')%></div>
       </div>
       <div class="row">
         <div class="col-xs-4"><%= current_user.posts.length %></div>
@@ -33,7 +33,7 @@
         <div class="chat-activity-list posts">
           <% if @posts.blank? %>
             <div class="text-center empty">
-              <h1>Você ainda não fez nenhuma Postagem :(</h1>
+              <h1><%=t('posts.empty')%></h1>
             </div>
           <% else %>
             <% @posts.each do |post| %>

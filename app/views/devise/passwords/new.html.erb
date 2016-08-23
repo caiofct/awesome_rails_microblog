@@ -1,15 +1,15 @@
 <div class="border-form-div max-width-550 loginscreen animated fadeInDown">
-  <h3 class="custom-text-color text-center">Recuperar senha para acessar o</h3>
+  <h3 class="custom-text-color text-center"><%= t('password.recover_label') %></h3>
   <h2 class="custom-text-color text-center">Awesome Rails Microblog</h2>
 
   <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: "m-t", role: "form" }) do |f| %>
     <%= f.error_notification %>
 
     <div class="form-group">
-      <%= f.input :email, label: false, placeholder: "Digite seu e-mail", autofocus: true, class: "form-control" %>
+      <%= f.input :email, label: false, placeholder: t('password.email_placeholder'), autofocus: true, class: "form-control" %>
     </div>
 
-    <%= f.button :submit, "Enviar", class: "btn-primary full-width block m-b" %>
-    <%= link_to "Cancelar", new_session_path(resource_name), class: "btn btn-sm btn-white btn-block" %>
+    <%= f.button :submit, t('buttons.send'), class: "btn-primary full-width block m-b" %>
+    <%= link_to t('buttons.cancel'), new_session_path(resource_name), class: "btn btn-sm btn-white btn-block" %>
   <% end %>
 </div>
