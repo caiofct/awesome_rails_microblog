@@ -53,11 +53,11 @@ Rails.application.configure do
 
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
-    address:         'smtp.gmail.com',
+    address:         ENV['SMTP_HOST'],
     domain:          'localhost',
     port:            587,
-    user_name:       'br.app.dev',
-    password:        'br_app_d3v',
+    user_name:     ENV['SMTP_USERNAME'],
+    password:      ENV['SMTP_PASSWORD'],
     authentication:  :plain,
     enable_starttls_auto:  true
   }
