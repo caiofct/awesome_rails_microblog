@@ -2,6 +2,12 @@
 
 A much simpler twitter clone.
 
+There are two main branches:
+
+* [master](https://github.com/caiofct/awesome_rails_microblog/tree/master): Html + Jquery version of the Frontend with a focus on best practices and simplicity.
+* [react_with_cable](https://github.com/caiofct/awesome_rails_microblog/tree/react_with_cable): Webpack + Node + React version of the Frontendo with a focus
+on real-time and bleeding edge tech and performance.
+
 ## Features
 
 The are two basic roles:
