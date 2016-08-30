@@ -1,6 +1,8 @@
 ## Awesome Rails Microblog
 
-A much simpler twitter clone.
+A much simpler twitter clone. In this branch we use react to render the user profile and
+posts list as well as the new post form. We also use Action Cable to enable real-time
+posts loading.
 
 ## Features
 
@@ -35,6 +37,9 @@ The are two basic roles:
 * Rails v5.0.0
 * rspec-rails 3.5.0.beta3
 * cucumber-rails 1.4.3
+* react-rails 1.8.0
+* nodejs
+* webpack
 
 ## How to run the unit tests
 
